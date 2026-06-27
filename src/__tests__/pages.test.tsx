@@ -4,6 +4,7 @@ import { renderWithRouter } from '../test-utils'
 import Home from '../pages/Home'
 import Projects from '../pages/Projects'
 import About from '../pages/About'
+import Contact from '../pages/Contact'
 import { projects, featuredProjects } from '../data/projects'
 
 function r(ui: ReactElement) { return renderWithRouter(ui) }
@@ -53,4 +54,14 @@ test('About contains no job-hunt signal (stealth)', () => {
   for (const bad of ['open to work', 'seeking', 'available for hire', 'hire me', 'resume', 'résumé', 'curriculum vitae']) {
     expect(text).not.toContain(bad)
   }
+})
+
+test('Contact offers LinkedIn and nothing that leaks private info', () => {
+  r(<Contact />)
+  const li = screen.getByRole('link', { name: /linkedin/i })
+  expect(li).toHaveAttribute('href', 'https://www.linkedin.com/in/ramvijay')
+  const text = document.body.textContent ?? ''
+  expect(text).not.toMatch(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i)  // no email
+  expect(text).not.toMatch(/\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/)      // no phone
+  expect(screen.queryByText(/resume|résumé/i)).toBeNull()             // no résumé
 })
