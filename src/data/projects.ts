@@ -1,0 +1,82 @@
+import type { Project } from '../types'
+
+export const projects: Project[] = [
+  {
+    slug: 'see-me-fly',
+    name: 'See Me Fly',
+    blurb: 'An offline flight-history dashboard — 20 cards of stats from a flight-log CSV, all on your machine.',
+    repo: 'https://github.com/theonenonlyvj/see-me-fly',
+    liveUrl: 'https://theonenonlyvj.github.io/see-me-fly/',
+    status: 'live',
+    thumbnail: '/screenshots/see-me-fly.png',
+    featured: true,
+  },
+  {
+    slug: 'mundial26',
+    name: 'Mundial26',
+    blurb: 'A retro Panini sticker-album tracker for the 2026 World Cup — matches by date and host city.',
+    repo: 'https://github.com/theonenonlyvj/Mundial26',
+    liveUrl: 'https://mundial26-app.onrender.com/',
+    status: 'live',
+    thumbnail: '/screenshots/mundial26.png',
+    featured: true,
+  },
+  {
+    slug: 'jaipur',
+    name: 'Jaipur',
+    blurb: 'A browser build of the two-player market-trading card game.',
+    repo: 'https://github.com/theonenonlyvj/vjaipur',
+    liveUrl: 'https://vjaipur-game.onrender.com/',
+    status: 'live',
+    thumbnail: '/screenshots/jaipur.png',
+    featured: true,
+    renamePending: true,
+  },
+  {
+    slug: 'iota',
+    name: 'Iota',
+    blurb: 'A browser build of the compact tile-placement card game.',
+    repo: 'https://github.com/theonenonlyvj/viota',
+    liveUrl: 'https://viota-game.onrender.com/',
+    status: 'live',
+    thumbnail: '/screenshots/iota.png',
+    featured: false,
+    renamePending: true,
+  },
+  {
+    slug: 'war',
+    name: 'War',
+    blurb: 'A browser build of the classic card game.',
+    repo: 'https://github.com/theonenonlyvj/war_cards',
+    liveUrl: 'https://vwar-game.onrender.com/',
+    status: 'live',
+    thumbnail: '/screenshots/war.png',
+    featured: false,
+  },
+  {
+    slug: 'health-downloader',
+    name: 'Health Downloader',
+    blurb: 'A local app that pulls all of your health records via OAuth2 into one place.',
+    repo: null,
+    liveUrl: null,
+    status: 'coming-soon',
+    thumbnail: '/screenshots/health-downloader.png',
+    featured: false,
+  },
+  {
+    slug: 'friend-finder',
+    name: 'Friend Finder',
+    blurb: 'A tool that ranks who messages you most across every chat platform.',
+    repo: null,
+    liveUrl: null,
+    status: 'coming-soon',
+    thumbnail: '/screenshots/friend-finder.png',
+    featured: false,
+  },
+]
+
+export function featuredProjects(): Project[] {
+  return projects.filter(p => p.featured)
+}
+
+export default projects
