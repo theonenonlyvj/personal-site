@@ -3,6 +3,7 @@ import type { ReactElement } from 'react'
 import { renderWithRouter } from '../test-utils'
 import Home from '../pages/Home'
 import Projects from '../pages/Projects'
+import About from '../pages/About'
 import { projects, featuredProjects } from '../data/projects'
 
 function r(ui: ReactElement) { return renderWithRouter(ui) }
@@ -34,4 +35,22 @@ test('Home features at least one project with a link into Projects', () => {
   // a "see all" route link to /projects exists
   const toProjects = screen.getByRole('link', { name: /projects|all|see/i })
   expect(toProjects).toHaveAttribute('href', '/projects')
+})
+
+test('About surfaces the real proof points', () => {
+  r(<About />)
+  const text = document.body.textContent ?? ''
+  expect(text).toMatch(/Duke/)
+  expect(text).toMatch(/NeuroPace/)
+  expect(text).toMatch(/\$0/)
+  expect(text).toMatch(/\$4\.1M/)
+  expect(text).toMatch(/Region of the Year/i)
+})
+
+test('About contains no job-hunt signal (stealth)', () => {
+  r(<About />)
+  const text = (document.body.textContent ?? '').toLowerCase()
+  for (const bad of ['open to work', 'seeking', 'available for hire', 'hire me', 'resume', 'résumé', 'curriculum vitae']) {
+    expect(text).not.toContain(bad)
+  }
 })
