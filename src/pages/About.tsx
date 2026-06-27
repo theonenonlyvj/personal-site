@@ -12,11 +12,17 @@ export default function About() {
       </p>
       <p>
         Fifteen years in, the lesson is that the science is just the first hurdle. The real barriers to
-        adoption are about convincing people &mdash; getting a doctor to change their mind, getting a
-        system to say yes, keeping a team honest about what the product actually does.
+        adoption are about convincing people — getting a doctor to change their mind, getting a system
+        to say yes, keeping a team honest about what the product actually does.
+      </p>
+      <p>
+        The other constant has been giving back, mostly around education and the communities I've worked
+        in. I co-founded Lotus, a nonprofit that grew across three Texas cities; served on the founding
+        board of the Epilepsy Foundation's Austin chapter; and my partner and I started a fund to help
+        kids access early education opportunities.
       </p>
       <p style={{ color: 'var(--ink-2)' }}>
-        The stuff on this site is what I build when the weekend&apos;s free and the problem looks fun.
+        The stuff on this site is me tinkering for fun. Have feedback? Please share!
       </p>
     </section>
   )
