@@ -1,0 +1,7 @@
+node_modules
+dist
+.DS_Store
+*.local
+# private orientation breadcrumb — points at the lifecoach hub; MUST never ship
+*.local.md
+ORIENTATION.local.md
