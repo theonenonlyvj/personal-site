@@ -1,7 +1,9 @@
 import type { Project } from '../types'
+import { useState } from 'react'
 
 export function ProjectCard({ project }: { project: Project }) {
   const isLive = project.status === 'live' && project.liveUrl
+  const [imgOk, setImgOk] = useState(true)
   return (
     <article
       style={{
@@ -9,11 +11,27 @@ export function ProjectCard({ project }: { project: Project }) {
         boxShadow: 'var(--shadow)', display: 'flex', flexDirection: 'column',
       }}
     >
-      <img
-        src={project.thumbnail}
-        alt={project.name}
-        style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', background: 'var(--hair-2)' }}
-      />
+      {imgOk ? (
+        <img
+          src={project.thumbnail}
+          alt={project.name}
+          onError={() => setImgOk(false)}
+          style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', background: 'var(--hair-2)' }}
+        />
+      ) : (
+        <div
+          role="img"
+          aria-label={project.name}
+          style={{
+            width: '100%', aspectRatio: '16 / 10', background: 'var(--grad-hero)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: '#fff', fontFamily: 'var(--font-display)', fontWeight: 600,
+            fontSize: 26, textAlign: 'center', padding: 16,
+          }}
+        >
+          {project.name}
+        </div>
+      )}
       <div style={{ padding: 'var(--pad)', display: 'flex', flexDirection: 'column', gap: 12, flex: 1 }}>
         <h3 style={{ margin: 0 }}>{project.name}</h3>
         <p style={{ margin: 0, color: 'var(--ink-2)', flex: 1 }}>{project.blurb}</p>

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { ProjectCard } from '../components/ProjectCard'
 import type { Project } from '../types'
 
@@ -30,4 +30,12 @@ test('coming-soon card shows a badge and no live link', () => {
 test('thumbnail uses the project name as alt text', () => {
   render(<ProjectCard project={live} />)
   expect(screen.getByAltText('Demo App')).toHaveAttribute('src', '/screenshots/demo.png')
+})
+
+test('falls back to a gradient poster when the thumbnail fails to load', () => {
+  render(<ProjectCard project={live} />)
+  fireEvent.error(screen.getByAltText('Demo App'))
+  // after error, the <img> is replaced by a poster div exposing the name via aria-label
+  const poster = screen.getByRole('img', { name: 'Demo App' })
+  expect(poster.tagName).toBe('DIV')
 })
