@@ -26,7 +26,7 @@ test('Projects page links live projects to their demo URLs', () => {
 test('Home shows the name heading and the builder tagline', () => {
   r(<Home />)
   expect(screen.getByRole('heading', { name: /vijay ram/i })).toBeInTheDocument()
-  expect(screen.getByText(/builder/i)).toBeInTheDocument()
+  expect(screen.getByText(/sales leader and operator/i)).toBeInTheDocument()
 })
 
 test('Home features at least one project with a link into Projects', () => {
@@ -43,9 +43,8 @@ test('About surfaces the real proof points', () => {
   const text = document.body.textContent ?? ''
   expect(text).toMatch(/Duke/)
   expect(text).toMatch(/NeuroPace/)
-  expect(text).toMatch(/\$0/)
-  expect(text).toMatch(/\$4\.1M/)
-  expect(text).toMatch(/Region of the Year/i)
+  expect(text).toMatch(/Podimetrics/)
+  expect(text).toMatch(/epilepsy/i)
 })
 
 test('About contains no job-hunt signal (stealth)', () => {

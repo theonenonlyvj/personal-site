@@ -10,12 +10,11 @@ export default function Home() {
         <h1 style={{ fontSize: 'clamp(40px, 7vw, 76px)' }}>
           <span className="grad-text">Vijay Ram</span>
         </h1>
-        <p style={{ fontSize: 22, fontFamily: 'var(--font-display)', maxWidth: 620 }}>
-          Engineer → operator → builder. I find diamonds in the rough and build the thing.
+        <p style={{ fontSize: 24, fontFamily: 'var(--font-display)', maxWidth: 640 }}>
+          Engineer turned Sales Leader and Operator.
         </p>
-        <p style={{ color: 'var(--ink-2)', maxWidth: 620 }}>
-          Medical-device commercial leader by trade, tinkerer by default. These are things I built because
-          they were fun to build.
+        <p style={{ color: 'var(--ink-2)', fontSize: 18, maxWidth: 640 }}>
+          I've spent 15+ years getting medical technology to patients.
         </p>
       </div>
 

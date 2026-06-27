@@ -3,24 +3,20 @@ export default function About() {
     <section style={{ maxWidth: 680 }}>
       <h1>About</h1>
       <p>
-        I'm an engineer turned operator turned builder. I studied biomedical engineering and computer
-        science at Duke, then spent a decade in medical devices.
+        I started in signal processing: 3D ultrasound in a lab at Duke, then a brain implant (BCI)
+        for epilepsy at NeuroPace, then a thermistor-array amputation-prevention device at Podimetrics.
+        What kept pulling me, though, wasn't the algorithm. It was everything between a working device
+        and a patient who's actually better off — the surgeon or doctor who has to trust it, the
+        hospital or clinic that has to adopt it, the team that has to sell and support it. So I followed
+        it there: into the OR, into sales, into building and running teams.
       </p>
       <p>
-        At NeuroPace I helped bring the first FDA-approved responsive brain implant for epilepsy to
-        market — from the OR to building and leading the field team. I grew a territory from <strong>$0
-        to $4.1M</strong>, my field playbook became the company's standard, and I led my region to
-        Region of the Year. After that I scaled a diabetes-prevention sales team at Podimetrics, and
-        today I'm a startup COO building in health data.
-      </p>
-      <p>
-        What actually gets me going: finding a diamond in the rough and building the thing — the teams,
-        the products, the messy zero-to-one. Machines that make the human body better are my north star.
-        The projects on this site are me scratching that itch for fun.
+        Fifteen years in, the lesson is that the science is just the first hurdle. The real barriers to
+        adoption are about convincing people &mdash; getting a doctor to change their mind, getting a
+        system to say yes, keeping a team honest about what the product actually does.
       </p>
       <p style={{ color: 'var(--ink-2)' }}>
-        Off the clock: racquetball, biking, board games, and arguing about how to make the world a
-        little better.
+        The stuff on this site is what I build when the weekend&apos;s free and the problem looks fun.
       </p>
     </section>
   )
