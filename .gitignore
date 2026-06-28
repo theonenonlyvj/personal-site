@@ -2,6 +2,7 @@ node_modules
 dist
 .DS_Store
 *.local
-# private orientation breadcrumb — points at the lifecoach hub; MUST never ship
+*.tsbuildinfo
+# local-only notes / orientation — never commit
 *.local.md
 ORIENTATION.local.md
