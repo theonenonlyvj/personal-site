@@ -5,7 +5,7 @@ import Home from '../pages/Home'
 import Projects from '../pages/Projects'
 import About from '../pages/About'
 import Contact from '../pages/Contact'
-import { projects, featuredProjects } from '../data/projects'
+import { projects } from '../data/projects'
 
 function r(ui: ReactElement) { return renderWithRouter(ui) }
 
@@ -29,13 +29,11 @@ test('Home shows the name heading and the builder tagline', () => {
   expect(screen.getByText(/sales leader and operator/i)).toBeInTheDocument()
 })
 
-test('Home features at least one project with a link into Projects', () => {
+test('Home shows every project', () => {
   r(<Home />)
-  expect(featuredProjects().length).toBeGreaterThan(0)
-  expect(screen.getAllByText(featuredProjects()[0].name).length).toBeGreaterThan(0)
-  // a "see all" route link to /projects exists
-  const toProjects = screen.getByRole('link', { name: /projects|all|see/i })
-  expect(toProjects).toHaveAttribute('href', '/projects')
+  for (const p of projects) {
+    expect(screen.getByText(p.name)).toBeInTheDocument()
+  }
 })
 
 test('About surfaces the real proof points', () => {

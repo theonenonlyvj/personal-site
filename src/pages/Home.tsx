@@ -1,9 +1,7 @@
-import { Link } from 'react-router-dom'
-import { featuredProjects } from '../data/projects'
+import { projects } from '../data/projects'
 import { ProjectCard } from '../components/ProjectCard'
 
 export default function Home() {
-  const featured = featuredProjects()
   return (
     <section>
       <div style={{ padding: '40px 0 16px' }}>
@@ -18,17 +16,14 @@ export default function Home() {
         </p>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: 24 }}>
-        <h2 style={{ margin: 0 }}>Featured</h2>
-        <Link to="/projects" style={{ fontWeight: 600 }}>All projects →</Link>
-      </div>
+      <h2 style={{ margin: 0, marginTop: 24 }}>Projects</h2>
       <div
         style={{
           display: 'grid', gap: 'var(--gap)', marginTop: 16,
           gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
         }}
       >
-        {featured.map(p => <ProjectCard key={p.slug} project={p} />)}
+        {projects.map(p => <ProjectCard key={p.slug} project={p} />)}
       </div>
     </section>
   )
