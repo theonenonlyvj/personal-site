@@ -9,6 +9,7 @@ export interface Project {
   status: ProjectStatus
   thumbnail: string
   featured: boolean
+  cta: string
   /** Game is a clone of a trademarked title; rename before public deploy. */
   renamePending?: boolean
 }

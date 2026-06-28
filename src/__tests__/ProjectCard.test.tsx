@@ -5,10 +5,12 @@ import type { Project } from '../types'
 const live: Project = {
   slug: 'demo', name: 'Demo App', blurb: 'A demo.', repo: 'https://github.com/x/demo',
   liveUrl: 'https://demo.example.com/', status: 'live', thumbnail: '/screenshots/demo.png', featured: false,
+  cta: 'Play',
 }
 const soon: Project = {
   slug: 'soon', name: 'Soon App', blurb: 'Later.', repo: null,
   liveUrl: null, status: 'coming-soon', thumbnail: '/screenshots/soon.png', featured: false,
+  cta: 'Use',
 }
 
 test('live card shows name, blurb, a live link to the URL, and a GitHub link', () => {

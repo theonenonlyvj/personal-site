@@ -9,6 +9,7 @@ test('every project has required fields and a unique slug', () => {
     expect(p.name.length).toBeGreaterThan(0)
     expect(p.blurb.length).toBeGreaterThan(0)
     expect(p.thumbnail.length).toBeGreaterThan(0)
+    expect(p.cta.length).toBeGreaterThan(0)
   }
 })
 

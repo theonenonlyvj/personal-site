@@ -10,6 +10,7 @@ export const projects: Project[] = [
     status: 'live',
     thumbnail: '/screenshots/see-me-fly.png',
     featured: true,
+    cta: 'View',
   },
   {
     slug: 'mundial26',
@@ -20,6 +21,7 @@ export const projects: Project[] = [
     status: 'live',
     thumbnail: '/screenshots/mundial26.png',
     featured: true,
+    cta: 'View',
   },
   {
     slug: 'jaipur',
@@ -31,6 +33,7 @@ export const projects: Project[] = [
     thumbnail: '/screenshots/jaipur.png',
     featured: true,
     renamePending: true,
+    cta: 'Play',
   },
   {
     slug: 'iota',
@@ -42,6 +45,7 @@ export const projects: Project[] = [
     thumbnail: '/screenshots/iota.png',
     featured: false,
     renamePending: true,
+    cta: 'Play',
   },
   {
     slug: 'war',
@@ -52,6 +56,7 @@ export const projects: Project[] = [
     status: 'live',
     thumbnail: '/screenshots/war.png',
     featured: false,
+    cta: 'Play',
   },
   {
     slug: 'health-downloader',
@@ -62,16 +67,18 @@ export const projects: Project[] = [
     status: 'coming-soon',
     thumbnail: '/screenshots/health-downloader.png',
     featured: false,
+    cta: 'Use',
   },
   {
-    slug: 'friend-finder',
-    name: 'Friend Finder',
+    slug: 'friend-ranker',
+    name: 'Friend Ranker',
     blurb: 'A tool that ranks who messages you most across every chat platform.',
     repo: null,
     liveUrl: null,
     status: 'coming-soon',
-    thumbnail: '/screenshots/friend-finder.png',
+    thumbnail: '/screenshots/friend-ranker.png',
     featured: false,
+    cta: 'Use',
   },
 ]
 

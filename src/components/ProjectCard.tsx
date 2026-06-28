@@ -46,7 +46,7 @@ export function ProjectCard({ project }: { project: Project }) {
                 background: 'var(--grad-hero)', padding: '8px 16px', borderRadius: 999,
               }}
             >
-              Live demo →
+              {project.cta} →
             </a>
           ) : (
             <span
