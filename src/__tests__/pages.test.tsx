@@ -23,10 +23,10 @@ test('Projects page links live projects to their demo URLs', () => {
   for (const p of live) expect(hrefs).toContain(p.liveUrl)
 })
 
-test('Home shows the name heading and the builder tagline', () => {
+test('Home shows the playground hero', () => {
   r(<Home />)
-  expect(screen.getByRole('heading', { name: /vijay ram/i })).toBeInTheDocument()
-  expect(screen.getByText(/sales leader and operator/i)).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: /theonenonlyvj/i })).toBeInTheDocument()
+  expect(screen.getByText(/welcome to my playground/i)).toBeInTheDocument()
 })
 
 test('Home shows every project', () => {
@@ -39,6 +39,7 @@ test('Home shows every project', () => {
 test('About surfaces the real proof points', () => {
   r(<About />)
   const text = document.body.textContent ?? ''
+  expect(text).toMatch(/Sales Leader and Operator/i)
   expect(text).toMatch(/Duke/)
   expect(text).toMatch(/NeuroPace/)
   expect(text).toMatch(/Podimetrics/)

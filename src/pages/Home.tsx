@@ -6,13 +6,13 @@ export default function Home() {
     <section>
       <div style={{ padding: '40px 0 16px' }}>
         <h1 style={{ fontSize: 'clamp(40px, 7vw, 76px)' }}>
-          <span className="grad-text">Vijay Ram</span>
+          <span className="grad-text">theonenonlyvj</span>
         </h1>
         <p style={{ fontSize: 24, fontFamily: 'var(--font-display)', maxWidth: 640 }}>
-          Engineer turned Sales Leader and Operator.
+          Welcome to my playground!
         </p>
         <p style={{ color: 'var(--ink-2)', fontSize: 18, maxWidth: 640 }}>
-          I've spent 15+ years getting medical technology to patients.
+          I like thoughts, give 'em to me.
         </p>
       </div>
 
