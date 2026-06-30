@@ -80,6 +80,17 @@ export const projects: Project[] = [
     featured: false,
     cta: 'Use',
   },
+  {
+    slug: 'justdosas',
+    name: 'JustDosas',
+    blurb: 'Wannabe food influencer — chasing the perfect dosa across continents, one golden bite at a time.',
+    repo: null,
+    liveUrl: 'https://www.instagram.com/justdosas',
+    status: 'live',
+    thumbnail: '/screenshots/justdosas.png',
+    featured: false,
+    cta: 'Follow',
+  },
 ]
 
 export function featuredProjects(): Project[] {
