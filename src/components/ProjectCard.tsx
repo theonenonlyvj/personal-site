@@ -13,7 +13,7 @@ export function ProjectCard({ project }: { project: Project }) {
     >
       {imgOk ? (
         <img
-          src={project.thumbnail}
+          src={`${import.meta.env.BASE_URL}${project.thumbnail.replace(/^\//, '')}`}
           alt={project.name}
           onError={() => setImgOk(false)}
           style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', background: 'var(--hair-2)' }}
