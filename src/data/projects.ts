@@ -10,6 +10,7 @@ export const projects: Project[] = [
     status: 'live',
     thumbnail: '/screenshots/justdosas.png',
     featured: false,
+    thumbFit: 'contain',
     cta: 'Follow',
   },
   {

@@ -14,4 +14,6 @@ export interface Project {
   renamePending?: boolean
   /** CSS object-position for the cover-cropped thumbnail (default centered) */
   thumbPosition?: string
+  /** CSS object-fit for the thumbnail (default cover) */
+  thumbFit?: 'cover' | 'contain'
 }

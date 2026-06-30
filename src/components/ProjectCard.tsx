@@ -16,7 +16,7 @@ export function ProjectCard({ project }: { project: Project }) {
           src={`${import.meta.env.BASE_URL}${project.thumbnail.replace(/^\//, '')}`}
           alt={project.name}
           onError={() => setImgOk(false)}
-          style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', objectPosition: project.thumbPosition ?? 'center', background: 'var(--hair-2)' }}
+          style={{ width: '100%', aspectRatio: '16 / 10', objectFit: project.thumbFit ?? 'cover', objectPosition: project.thumbPosition ?? 'center', background: 'var(--hair-2)' }}
         />
       ) : (
         <div
