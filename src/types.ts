@@ -12,4 +12,6 @@ export interface Project {
   cta: string
   /** Game is a clone of a trademarked title; rename before public deploy. */
   renamePending?: boolean
+  /** CSS object-position for the cover-cropped thumbnail (default centered) */
+  thumbPosition?: string
 }

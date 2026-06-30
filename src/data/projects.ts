@@ -56,6 +56,7 @@ export const projects: Project[] = [
     status: 'live',
     thumbnail: '/screenshots/war.png',
     featured: false,
+    thumbPosition: '50% 30%',
     cta: 'Play',
   },
   {
