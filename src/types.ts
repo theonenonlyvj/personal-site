@@ -16,4 +16,6 @@ export interface Project {
   thumbPosition?: string
   /** CSS object-fit for the thumbnail (default cover) */
   thumbFit?: 'cover' | 'contain'
+  /** Optional small extra link shown under the card (e.g. a personalized demo). */
+  secondaryLink?: { url: string; label: string }
 }

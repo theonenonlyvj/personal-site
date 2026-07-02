@@ -64,6 +64,16 @@ export function ProjectCard({ project }: { project: Project }) {
             </a>
           )}
         </div>
+        {project.secondaryLink && (
+          <a
+            href={project.secondaryLink.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: 14, fontWeight: 600, color: 'var(--ink-2)' }}
+          >
+            {project.secondaryLink.label} →
+          </a>
+        )}
       </div>
     </article>
   )

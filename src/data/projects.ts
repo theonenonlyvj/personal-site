@@ -46,6 +46,10 @@ export const projects: Project[] = [
     thumbnail: '/screenshots/see-me-fly.png',
     featured: true,
     cta: 'View',
+    secondaryLink: {
+      url: 'https://theonenonlyvj.github.io/see-me-fly/?k=VIJAY12345',
+      label: "Visualize Vijay's Flights",
+    },
   },
   {
     slug: 'iota',
