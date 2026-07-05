@@ -13,6 +13,7 @@ afterEach(() => vi.unstubAllGlobals())
 
 test('submits the message to the endpoint and shows a confirmation', async () => {
   render(<ContactForm />)
+  fireEvent.change(screen.getByPlaceholderText(/your name/i), { target: { value: 'Ada' } })
   fireEvent.change(screen.getByPlaceholderText(/on your mind/i), { target: { value: 'hey there' } })
   fireEvent.click(screen.getByRole('button', { name: /send/i }))
 
@@ -27,12 +28,21 @@ test('submits the message to the endpoint and shows a confirmation', async () =>
 
 test('does not submit an empty message', () => {
   render(<ContactForm />)
+  fireEvent.change(screen.getByPlaceholderText(/your name/i), { target: { value: 'Ada' } })
+  fireEvent.click(screen.getByRole('button', { name: /send/i }))
+  expect(fetch).not.toHaveBeenCalled()
+})
+
+test('does not submit without a name', () => {
+  render(<ContactForm />)
+  fireEvent.change(screen.getByPlaceholderText(/on your mind/i), { target: { value: 'hi' } })
   fireEvent.click(screen.getByRole('button', { name: /send/i }))
   expect(fetch).not.toHaveBeenCalled()
 })
 
 test('honeypot submission is dropped without hitting the endpoint', () => {
   const { container } = render(<ContactForm />)
+  fireEvent.change(screen.getByPlaceholderText(/your name/i), { target: { value: 'Ada' } })
   fireEvent.change(screen.getByPlaceholderText(/on your mind/i), { target: { value: 'spam' } })
   const honeypot = container.querySelector('input[name="company"]') as HTMLInputElement
   fireEvent.change(honeypot, { target: { value: 'bot-filled-this' } })

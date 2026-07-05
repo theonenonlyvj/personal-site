@@ -11,8 +11,9 @@ export function ContactForm() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    if (status === 'sending' || !message.trim()) return
     const form = e.currentTarget
+    const name = (form.elements.namedItem('name') as HTMLInputElement)?.value ?? ''
+    if (status === 'sending' || !name.trim() || !message.trim()) return
     // Honeypot: real users leave this hidden field empty; bots fill it.
     if ((form.elements.namedItem('company') as HTMLInputElement)?.value) {
       setStatus('sent') // pretend success, drop silently
@@ -48,7 +49,7 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} style={{ marginTop: 28, display: 'flex', flexDirection: 'column', gap: 12 }}>
       <p style={{ margin: 0, color: 'var(--ink-2)' }}>Or just drop a note:</p>
-      <input name="name" type="text" placeholder="Your name (optional)" style={inputStyle} autoComplete="off" />
+      <input name="name" type="text" required placeholder="Your name" style={inputStyle} autoComplete="off" />
       <input name="contact" type="text" placeholder="How to reach you back (optional)" style={inputStyle} autoComplete="off" />
       <textarea
         name="message"

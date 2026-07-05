@@ -12,7 +12,7 @@ export default function About() {
       </p>
       <p>
         I started in signal processing: 3D ultrasound in a lab at Duke, then a brain implant (BCI)
-        for epilepsy at NeuroPace, then a thermistor-array amputation-prevention device at Podimetrics.
+        for epilepsy at NeuroPace, then an amputation-prevention device at Podimetrics.
         What kept pulling me, though, wasn't the algorithm. It was everything between a working device
         and a patient who's actually better off — the surgeon or doctor who has to trust it, the
         hospital or clinic that has to adopt it, the team that has to sell and support it. So I followed
