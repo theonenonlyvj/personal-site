@@ -10,6 +10,13 @@ One-time setup, ~10 minutes. You never touch it again — just check the Sheet.
 2. **Open the script editor.** In that Sheet: **Extensions → Apps Script**.
 3. **Paste the code.** Delete the starter `function myFunction(){}`, then paste the
    full contents of [`Code.gs`](./Code.gs). Click the **Save** (💾) icon.
+3a. **Narrow the permissions (recommended).** In the script editor, click
+   **Project Settings** (⚙️ left sidebar) → check **"Show `appsscript.json`
+   manifest file in the editor."** Go back to the **Editor**, open `appsscript.json`,
+   and replace its contents with [`appsscript.json`](./appsscript.json) from this
+   folder. This limits the app to **only this one Sheet** — so the permission
+   prompt says "the specific spreadsheet you use with this app" instead of "all
+   your spreadsheets." Save.
 4. **Deploy as a Web App.** Click **Deploy → New deployment**.
    - Click the ⚙️ gear → choose **Web app**.
    - **Description:** anything (e.g. `contact form`).
