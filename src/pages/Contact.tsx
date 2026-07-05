@@ -1,4 +1,5 @@
 import { LINKEDIN_URL } from '../components/Footer'
+import { ContactForm } from '../components/ContactForm'
 
 export default function Contact() {
   return (
@@ -19,6 +20,7 @@ export default function Contact() {
       >
         Find me on LinkedIn →
       </a>
+      <ContactForm />
     </section>
   )
 }
