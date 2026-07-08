@@ -56,7 +56,7 @@ export const projects: Project[] = [
     name: 'Iota',
     blurb: 'A browser build of the compact tile-placement card game.',
     repo: 'https://github.com/theonenonlyvj/viota',
-    liveUrl: 'https://viota-game.onrender.com/',
+    liveUrl: 'https://viota.pages.dev/',
     status: 'live',
     thumbnail: '/screenshots/iota.png',
     featured: false,
