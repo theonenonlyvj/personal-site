@@ -96,6 +96,14 @@ The site is served under **`/personal-site/`**, not `/`. So:
 - **Link previews (WhatsApp/iMessage/Slack):** Open Graph + Twitter tags in `index.html` +
   `public/og-image.png` (1200×630). `og:image` must be an absolute URL.
 
+## Portfolio-wide briefs (for agents working on Vijay's OTHER apps)
+
+- **[docs/portfolio-footer-brief.md](docs/portfolio-footer-brief.md)** — instructions to add a
+  "Have Feedback? … Click here." footer (→ this site's `/contact` and home) to Vijay's other
+  public apps (see-me-fly, vjaipur, war_cards, viota-if-applicable). Each app matches its **own**
+  theme, not a shared style. Park-and-run: don't auto-run without Vijay's go-ahead. Note §7:
+  **personal-site itself should NOT link to itself** — skip or confirm with Vijay.
+
 ## Open / known TODOs
 
 - `public/screenshots/friend-ranker.png` is still the gradient-poster fallback.
