@@ -52,6 +52,18 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: 'vwiki-race',
+    name: 'VWiki Race',
+    blurb: 'A Wikipedia navigation race — click from one article to another in as few hops as you can, with tracked challenges and leaderboards.',
+    repo: 'https://github.com/theonenonlyvj/vwiki-race',
+    liveUrl: 'https://vwikirace.pages.dev/',
+    status: 'live',
+    thumbnail: '/screenshots/vwiki-race.png',
+    featured: true,
+    thumbPosition: '50% 0%',
+    cta: 'Play',
+  },
+  {
     slug: 'iota',
     name: 'Iota',
     blurb: 'A browser build of the compact tile-placement card game.',
