@@ -2,6 +2,18 @@ import type { Project } from '../types'
 
 export const projects: Project[] = [
   {
+    slug: 'vwiki-race',
+    name: 'VWiki Race',
+    blurb: 'A Wikipedia navigation race — click from one article to another in as few hops as you can, with tracked challenges and leaderboards.',
+    repo: 'https://github.com/theonenonlyvj/vwiki-race',
+    liveUrl: 'https://vwikirace.pages.dev/',
+    status: 'live',
+    thumbnail: '/screenshots/vwiki-race.png',
+    featured: true,
+    thumbPosition: '50% 0%',
+    cta: 'Play',
+  },
+  {
     slug: 'justdosas',
     name: 'JustDosas',
     blurb: 'Wannabe food influencer — chasing the perfect dosa across continents, one golden bite at a time.',
@@ -50,18 +62,6 @@ export const projects: Project[] = [
       url: 'https://theonenonlyvj.github.io/see-me-fly/?k=VIJAY12345',
       label: "Visualize Vijay's Flights",
     },
-  },
-  {
-    slug: 'vwiki-race',
-    name: 'VWiki Race',
-    blurb: 'A Wikipedia navigation race — click from one article to another in as few hops as you can, with tracked challenges and leaderboards.',
-    repo: 'https://github.com/theonenonlyvj/vwiki-race',
-    liveUrl: 'https://vwikirace.pages.dev/',
-    status: 'live',
-    thumbnail: '/screenshots/vwiki-race.png',
-    featured: true,
-    thumbPosition: '50% 0%',
-    cta: 'Play',
   },
   {
     slug: 'iota',
