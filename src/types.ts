@@ -20,4 +20,6 @@ export interface Project {
   secondaryLink?: { url: string; label: string }
   /** Optional promo pill overlaid on the thumbnail (e.g. "Daily Challenges!"). */
   badge?: string
+  /** Draw an accent outline around the whole card to make it stand out. */
+  highlight?: boolean
 }

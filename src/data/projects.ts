@@ -10,6 +10,7 @@ export const projects: Project[] = [
     status: 'live',
     thumbnail: '/screenshots/vwiki-race.png',
     featured: true,
+    highlight: true,
     badge: 'Daily Challenges!',
     thumbPosition: '50% 0%',
     cta: 'Play',

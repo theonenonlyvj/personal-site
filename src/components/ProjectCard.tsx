@@ -8,7 +8,9 @@ export function ProjectCard({ project }: { project: Project }) {
     <article
       style={{
         background: 'var(--card)', borderRadius: 'var(--radius)', overflow: 'hidden',
-        boxShadow: 'var(--shadow)', display: 'flex', flexDirection: 'column',
+        boxShadow: project.highlight ? 'var(--shadow), 0 0 0 4px rgba(255,61,87,.14)' : 'var(--shadow)',
+        border: project.highlight ? '2px solid var(--coral)' : '2px solid transparent',
+        display: 'flex', flexDirection: 'column',
       }}
     >
       <div style={{ position: 'relative' }}>
