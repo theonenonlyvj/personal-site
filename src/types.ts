@@ -18,4 +18,6 @@ export interface Project {
   thumbFit?: 'cover' | 'contain'
   /** Optional small extra link shown under the card (e.g. a personalized demo). */
   secondaryLink?: { url: string; label: string }
+  /** Optional promo pill overlaid on the thumbnail (e.g. "Daily Challenges!"). */
+  badge?: string
 }
