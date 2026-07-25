@@ -38,7 +38,7 @@ export function ProjectCard({ project }: { project: Project }) {
         {project.badge && (
           <span
             style={{
-              position: 'absolute', top: 12, left: 12,
+              position: 'absolute', bottom: 12, left: 12,
               background: 'var(--grad-hero)', color: '#fff', fontWeight: 700, fontSize: 13,
               padding: '6px 12px', borderRadius: 999, letterSpacing: '.2px',
               boxShadow: '0 2px 10px rgba(0,0,0,.28)',
