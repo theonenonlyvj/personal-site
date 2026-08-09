@@ -66,6 +66,18 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: 'tushyrun',
+    name: 'TushyRun',
+    blurb: 'A one-button runner made as a love letter to my pregnant wife — chase the tushy, jump the laundry, earn the squeeze. No game over, only giggles.',
+    repo: null,
+    liveUrl: 'https://theonenonlyvj.github.io/personal-site/tushyrun/',
+    status: 'live',
+    thumbnail: '/screenshots/tushyrun.png',
+    featured: true,
+    badge: 'For my wife 🩷',
+    cta: 'Play',
+  },
+  {
     slug: 'iota',
     name: 'Iota',
     blurb: 'A browser build of the compact tile-placement card game.',

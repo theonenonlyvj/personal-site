@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#fff8ed">
+<title>TushyRun 🍑</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍑</text></svg>">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAADtklEQVR42u3dMY7bMBCGUba5f5tj5AQ5gS+SdpFu06YIENsrkf/MvOLrh9SDoJW80vr8/etT6tKyCQJaAloCWgJaQEtAS0BLQEtAC2gJaAloCWgJaAEtAS0BLQEtAS2gJaAloCWgJaAFtAS0BLQEtAS0gJaAloCWgJaAFtAS0BLQEtAC2kYIaAloCeh7+vb9x38zP9AlD/yrmR/o0gB2Aqk+P9BFEVyJo/r8QDeE/A6M6vMD3RzxMziqzw/0cMx/o6g+P9BBkD9+Pr7cSVAp8wN9CPIVAE4CT58f6A2YdyC4E3e1+YG+CfNJCFfAqDw/0E0hvwOj+vyJsFdFzMkQnoFRff5k1KsS5koQ/gWj+vwVUC+Y1Qn1glmdUK9kzADVhj0GNMxQtwENM9SjQEPSD3Vb0BMxT17nCdQLZqA7oV4wA90JNdBAAw0z0Kmoj4Keegdg+p2PsqDdnntY+2bUy6UG0J0uPZazM9CdztJAAw00zECnogYaaKBhBjoVNdBAA/0OaD+ttBflQDs7A336LA000EC73AA69bID6GDQV+9lwrEpA9rlxrWIrt7PlONz92UH0EAD7XID6NTLDqCBBhpooIEG2l2OKqD9Qeg+dMofhkADDTTQQAPt4D21J7v28OSxAnrYGfrufez8cAVooIEGej/ou7/3DTTQRx6sVMcMNNBjnhTGgPakcN+Twnf2Ne2E49H34PvQX3lHYOr7BYEe/mDl1Q/Jp39pDGhPCttgLg/af6xctx+dMQM9+LccFSGXA+2yI+epX/K+e40B0N7L4c1JQHtzEtBAA+2yA+jGbx91lgbaC8+BBto3VoCGGWiggYYa6DqYgQYaaN/6Bvqq35yUAu0sDfRuzLeDhvph3RsxHwc94eBaczPQ01Fb7z7MQAMNNNRAp2LeCnoq6snr3I15O+iJqKeu8QTmSNDdDvjE9Y0CPQ31tLWdxHwM9CTUk9Z1GvNR0M+irg5gwnpSMB8HPQF197UkYY4A3R1153WkYY4B/QrqaiA6zp+KOQr0q6jTYUyYPw1zHOgOsCu/SLEy5GjQ76BOfYl35/kT3cSCfhf1Thx3vFm/yvypZqJBXwF7xzf+dpQyf7qVEqCvhH2qDvNXqBToqig6zQ/0UNwT5gd6AOyJ8wPdDLf5gS4N3PxAl4RufqAloCWgJaAFtAS0BLQEtAS0gJaAloCWgJaAFtAS0BLQEtAC2iYIaAloCWgJaAEtAS0BLQEtAS2gJaAloCWgJaAFtAS0BLQEtAS0JvQHatmtl2d0q+YAAAAASUVORK5CYII=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fff8ed; --ink:#17353b; --teal:#099cb4; --teal-deep:#07596a;
+    --aqua:#c8f1f4; --blush:#f6c2d0; --pink:#ff46b0; --coral:#f07b3f;
+    --hud-ink:#17353b; --hud-bg:rgba(255,248,237,.72);
+  }
+  body.night{ --hud-ink:#f2dfe7; --hud-bg:rgba(8,43,52,.6); }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html,body{ height:100%; overflow:hidden; overscroll-behavior:none; }
+  body{
+    background:var(--cream);
+    font-family:"Fredoka", ui-rounded, system-ui, sans-serif;
+    touch-action:manipulation;
+    -webkit-touch-callout:none; -webkit-user-select:none; user-select:none;
+    -webkit-tap-highlight-color:transparent;
+  }
+  #c{ position:fixed; inset:0; width:100%; height:100%; display:block; }
+  .hud{ position:fixed; top:calc(10px + env(safe-area-inset-top));
+        left:calc(14px + env(safe-area-inset-left)); right:calc(14px + env(safe-area-inset-right));
+        display:flex; justify-content:space-between; align-items:flex-start;
+        pointer-events:none; z-index:5; }
+  .score{ color:var(--hud-ink); }
+  #hearts{ font-size:30px; font-weight:600; background:var(--hud-bg);
+           padding:4px 14px; border-radius:20px; display:inline-block; }
+  #life{ font-size:14px; font-weight:500; opacity:.75; margin-top:4px; padding-left:6px; }
+  .btns{ display:flex; gap:10px; pointer-events:auto; }
+  .btns button{
+    font-family:inherit; font-size:22px; line-height:1;
+    width:46px; height:46px; border-radius:50%;
+    border:2.5px solid var(--hud-ink); color:var(--hud-ink);
+    background:var(--hud-bg); cursor:pointer;
+  }
+  .btns button:active{ transform:scale(.92); }
+  .hidden{ display:none !important; }
+  #credit{ position:fixed; left:50%; transform:translateX(-50%);
+    bottom:calc(12px + env(safe-area-inset-bottom)); z-index:5;
+    font-family:inherit; font-size:15px; font-weight:500;
+    color:var(--hud-ink); opacity:.8; text-decoration:none;
+    background:var(--hud-bg); padding:6px 16px; border-radius:18px; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<a id="credit" href="https://theonenonlyvj.github.io/personal-site/" rel="noopener">made with 🩷 for my wife · more vgames →</a>
+<div class="hud">
+  <div class="score">
+    <span id="hearts">🩷 0</span>
+    <div id="life"></div>
+  </div>
+  <div class="btns">
+    <button id="muteB" aria-label="sound">🔊</button>
+    <button id="pauseB" aria-label="pause" class="hidden">⏸</button>
+  </div>
+</div>
+<script>
+"use strict";
+/* ============================================================
+   TushyRun 🍑 — a silly one-button chase; a love letter.
+   Cozy palette + Fredoka + a day/evening/night clock.
+   No accounts, no analytics, no tracking.
+   ============================================================ */
+
+/* ---------- time-of-day theme ---------- */
+const SCHED = { dayStart: 7*60, eveningStart: 18*60+30, nightStart: 22*60 };
+function themeMode(d = new Date()){
+  const m = d.getHours()*60 + d.getMinutes();
+  if (m >= SCHED.nightStart || m < SCHED.dayStart) return "night";
+  if (m >= SCHED.eveningStart) return "evening";
+  return "day";
+}
+const PALETTES = {
+  day: {
+    skyTop:"#d8f2f6", skyBot:"#fff8ed", ink:"#17353b", inkSoft:"#3d6470",
+    hillFar:"#c8f1f4", hillNear:"#a5e3ec", ground:"#17353b",
+    cheeks:"#f6c2d0", cheekLine:"#17353b", pink:"#ff46b0", coral:"#f07b3f",
+    teal:"#099cb4", sun:"#ffd98a", cloud:"rgba(255,255,255,.85)",
+    berry:"#e0518f", berryLeaf:"#3f9b7a", meterBg:"rgba(23,53,59,.14)"
+  },
+  evening: {
+    skyTop:"#f6c2d0", skyBot:"#fff1de", ink:"#2e2733", inkSoft:"#5d4b60",
+    hillFar:"#e5c3d4", hillNear:"#c9a0ba", ground:"#2e2733",
+    cheeks:"#f3b3c6", cheekLine:"#2e2733", pink:"#ff46b0", coral:"#f07b3f",
+    teal:"#168fa2", sun:"#f07b3f", cloud:"rgba(255,239,225,.8)",
+    berry:"#d94f89", berryLeaf:"#3f8b6f", meterBg:"rgba(46,39,51,.16)"
+  },
+  night: {
+    skyTop:"#03171d", skyBot:"#0b323c", ink:"#f2dfe7", inkSoft:"#b7a9ba",
+    hillFar:"#0e3d49", hillNear:"#155263", ground:"#f2dfe7",
+    cheeks:"#d98aa8", cheekLine:"#f2dfe7", pink:"#ff7cc4", coral:"#e69a71",
+    teal:"#62c4d0", sun:"#c6f3f1", cloud:"rgba(198,243,241,.14)",
+    berry:"#e070a2", berryLeaf:"#5fae91", meterBg:"rgba(242,223,231,.15)"
+  }
+};
+let MODE = themeMode();
+let P = PALETTES[MODE];
+let pauseDirty = true;   // forces a redraw of non-play states after any change
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+function applyMode(m){
+  MODE = m; P = PALETTES[MODE];
+  document.body.classList.toggle("night", MODE === "night");
+  if (themeMeta) themeMeta.setAttribute("content", P.skyTop);
+  pauseDirty = true;
+}
+applyMode(MODE);
+
+/* ---------- canvas ---------- */
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+let DPR = 1, W = 0, H = 0;          // css pixels
+let S = 1, worldW = 0, worldH = 0;  // world units (≈900-tall reference)
+let groundY = 0, chaserX = 0, GAP_MAX = 460;
+
+function resize(){
+  DPR = Math.min(window.devicePixelRatio || 1, 2);
+  W = window.innerWidth; H = window.innerHeight;
+  canvas.width = Math.round(W * DPR);
+  canvas.height = Math.round(H * DPR);
+  S = Math.min(H / 900, W / 1100);
+  worldW = W / S; worldH = H / S;
+  groundY = worldH - Math.max(150, worldH * 0.16);
+  chaserX = Math.max(110, worldW * 0.13);
+  GAP_MAX = Math.min(540, Math.max(300, (worldW - chaserX) * 0.55));
+  if (player && player.y > groundY) { player.y = groundY; player.vy = 0; }
+  if (runner && runner.y > groundY) { runner.y = groundY; runner.vy = 0; }
+  pauseDirty = true;
+}
+window.addEventListener("resize", resize);
+
+/* ---------- hand-drawn "boiling" jitter ---------- */
+let boilSeed = 1;
+function jit(i, amt = 2.6){
+  const x = Math.sin(i * 127.1 + boilSeed * 311.7) * 43758.5453;
+  return (x - Math.floor(x) - 0.5) * 2 * amt;
+}
+function rnd(seed){ // deterministic 0..1 from a seed (for scenery)
+  const x = Math.sin(seed * 12.9898 + 78.233) * 43758.5453;
+  return x - Math.floor(x);
+}
+
+/* localStorage can throw (private mode, file:// quirks) — never let that
+   reach the game loop; persistence just degrades to in-memory */
+function lsGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+function lsSet(k, v){ try { localStorage.setItem(k, v); } catch(e){} }
+
+/* ---------- audio (all synthesized, nothing loaded) ---------- */
+let AC = null, masterGain = null;
+let muted = lsGet("tushyrun_muted") === "1";
+function initAudio(){
+  if (AC || typeof (window.AudioContext || window.webkitAudioContext) !== "function") return;
+  try {
+    AC = new (window.AudioContext || window.webkitAudioContext)();
+    masterGain = AC.createGain();
+    masterGain.gain.value = muted ? 0 : 0.4;
+    masterGain.connect(AC.destination);
+  } catch(e){ AC = null; }
+}
+function tone(type, f0, f1, t0, dur, vol = 1){
+  if (!AC || muted) return;
+  const t = AC.currentTime + t0;
+  const o = AC.createOscillator(), g = AC.createGain();
+  o.type = type;
+  o.frequency.setValueAtTime(f0, t);
+  o.frequency.exponentialRampToValueAtTime(Math.max(f1, 1), t + dur);
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.exponentialRampToValueAtTime(vol, t + 0.015);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  o.connect(g); g.connect(masterGain);
+  o.start(t); o.stop(t + dur + 0.05);
+}
+const sfx = {
+  jump(){ tone("sine", 320, 640, 0, 0.13, 0.5); },
+  honk(){ // clown-horn honk-honk + sparkle
+    tone("square", 230, 195, 0,    0.10, 0.32);
+    tone("square", 185, 150, 0.14, 0.17, 0.36);
+    tone("sine", 820, 830, 0.30, 0.09, 0.30);
+    tone("sine", 1040, 1050, 0.39, 0.09, 0.30);
+    tone("sine", 1310, 1320, 0.48, 0.13, 0.30);
+  },
+  wah(){ tone("sawtooth", 210, 85, 0, 0.38, 0.22); },
+  squeak(){ tone("sine", 900, 1500, 0, 0.10, 0.4); },
+  dash(){ tone("sine", 500, 900, 0, 0.16, 0.2); }
+};
+
+/* ---------- state ---------- */
+let state = "title";           // title | play | pause
+let player, runner, obstacles, berries, particles, pops;
+let clouds, fireflies;
+let speed, playT, gap, dashT, celebT, hitstopT, berryTimer, spawnX, dist = 0;
+let hearts = 0;
+let lifetime = parseInt(lsGet("tushyrun_life") || "0", 10) || 0;
+let lastSqueezePhrase = -1;
+const PHRASES = ["SQUEEZE!", "HONK!", "GOTCHA!", "SQUISH!", "MWAH!"];
+
+const GRAV = 3000, JUMP_V = 1120;
+const DASH_DUR = 1.4, CELEB_DUR = 0.7;
+
+function newFigure(){
+  return { y: 0, vy: 0, grounded: true, runPhase: Math.random()*6,
+           buffer: 0, stumbleT: 0, invulnT: 0, lookBackT: 0, squashT: 0 };
+}
+function resetRun(){
+  player = newFigure(); runner = newFigure();
+  player.y = groundY; runner.y = groundY;
+  obstacles = []; berries = []; particles = []; pops = [];
+  speed = 300; playT = 0; gap = GAP_MAX; dashT = 0; celebT = 0; hitstopT = 0;
+  berryTimer = 5; spawnX = worldW + 400;   // dist deliberately kept — scenery flows through restarts
+  hearts = 0; updateHud();
+}
+function initScenery(){
+  clouds = [];
+  for (let i = 0; i < 4; i++)
+    clouds.push({ x: Math.random()*1.2, y: 0.08 + Math.random()*0.24,
+                  s: 0.7 + Math.random()*0.7, spd: 6 + Math.random()*7 });
+  fireflies = [];
+  for (let i = 0; i < 6; i++)
+    fireflies.push({ x: Math.random(), p: Math.random()*7 });
+}
+
+/* ---------- HUD ---------- */
+const heartsEl = document.getElementById("hearts");
+const lifeEl = document.getElementById("life");
+const muteB = document.getElementById("muteB");
+const pauseB = document.getElementById("pauseB");
+function updateHud(){
+  heartsEl.textContent = "🩷 " + hearts;
+  lifeEl.textContent = lifetime > 0 ? "lifetime squeezes: " + lifetime : "";
+  muteB.textContent = muted ? "🔇" : "🔊";
+}
+muteB.addEventListener("pointerdown", e => {
+  e.stopPropagation(); e.preventDefault();
+  muted = !muted;
+  lsSet("tushyrun_muted", muted ? "1" : "0");
+  if (masterGain) masterGain.gain.value = muted ? 0 : 0.4;
+  updateHud();
+});
+pauseB.addEventListener("pointerdown", e => {
+  e.stopPropagation(); e.preventDefault();
+  if (state === "play") setState("pause");
+  else if (state === "pause") setState("play");
+});
+const creditEl = document.getElementById("credit");
+creditEl.addEventListener("pointerdown", e => e.stopPropagation());
+function setState(s){
+  state = s;
+  pauseDirty = true;
+  pauseB.classList.toggle("hidden", s === "title");
+  pauseB.textContent = s === "pause" ? "▶️" : "⏸";
+  creditEl.classList.toggle("hidden", s !== "title");
+}
+
+/* ---------- input ---------- */
+function press(){
+  initAudio();
+  if (AC && AC.state === "suspended") AC.resume();
+  if (state === "title"){ resetRun(); setState("play"); return; }
+  if (state === "pause"){ setState("play"); return; }
+  if (state === "play"){
+    player.buffer = 0.12;
+  }
+}
+window.addEventListener("pointerdown", e => { press(); }, { passive: true });
+window.addEventListener("keydown", e => {
+  if (e.repeat) return;
+  if (e.code === "Space" || e.code === "ArrowUp"){ e.preventDefault(); press(); }
+  else if (e.code === "KeyP" || e.code === "Escape"){
+    if (state === "play") setState("pause");
+    else if (state === "pause") setState("play");
+  }
+});
+document.addEventListener("touchmove", e => e.preventDefault(), { passive: false });
+document.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden && state === "play") setState("pause");
+});
+
+/* ---------- obstacles ---------- */
+const OBS_TYPES = [
+  { kind:"cat",    w: 78, h: 56 },
+  { kind:"basket", w: 72, h: 60 },
+  { kind:"plant",  w: 58, h: 74 },
+  { kind:"roomba", w: 76, h: 26, extraV: 90 }
+];
+function spawnObstacle(){
+  const t = OBS_TYPES[Math.floor(Math.random()*OBS_TYPES.length)];
+  obstacles.push({ ...t, x: worldW + 120, toppled: 0, seed: Math.random()*100, wob: 0 });
+}
+function scheduleGap(){
+  const k = Math.min(1, (speed - 300) / 320);   // 0 easy → 0.75 at the speed cap: density plateaus before max
+  const tMin = 1.7 - 0.5*k, tMax = 2.7 - 0.8*k;
+  return speed * (tMin + Math.random() * (tMax - tMin));
+}
+
+/* ---------- particles & pops ---------- */
+function burstHearts(x, y, n){
+  for (let i = 0; i < n; i++)
+    particles.push({ kind:"heart", x, y: y - 20,
+      vx: (Math.random()-0.3)*260, vy: -140 - Math.random()*260,
+      r: 9 + Math.random()*10, rot: Math.random()*6, vr: (Math.random()-.5)*6,
+      t: 0, life: 0.9 + Math.random()*0.5 });
+}
+function puff(x, y, n = 4){
+  for (let i = 0; i < n; i++)
+    particles.push({ kind:"puff", x: x + jit(i,14), y,
+      vx: -40 - Math.random()*60, vy: -20 - Math.random()*40,
+      r: 6 + Math.random()*8, t: 0, life: 0.45 });
+}
+function sweat(x, y){
+  for (let i = 0; i < 5; i++)
+    particles.push({ kind:"sweat", x, y: y - 110,
+      vx: (Math.random()-.5)*320, vy: -200 - Math.random()*160,
+      r: 5, t: 0, life: 0.6 });
+}
+function pop(x, y, text, big){
+  pops.push({ x, y, text, t: 0, life: 1.0, big: !!big });
+}
+
+/* ---------- update ---------- */
+function doJump(f){
+  f.vy = -JUMP_V; f.grounded = false; f.buffer = 0;
+  f.runPhase = 0;
+}
+function stepClouds(d){
+  for (const c of clouds){
+    c.x -= (c.spd / worldW) * d * 3;
+    if (c.x < -0.25) { c.x = 1.15; c.y = 0.08 + Math.random()*0.24; }
+  }
+}
+function update(dt){
+  boil();
+  if (state === "pause") return;
+  if (state === "title"){         // gentle stroll behind the title card
+    dist += 120 * dt;
+    stepClouds(dt);
+    return;
+  }
+
+  if (hitstopT > 0){ hitstopT -= dt; return; }
+  let ts = 1;
+  if (celebT > 0){ ts = 0.35; celebT -= dt; if (celebT <= 0) { dashT = DASH_DUR; sfx.dash(); } }
+  const d = dt * ts;
+
+  playT += d;
+  speed = Math.min(540, 300 + playT * 1.2 + hearts * 5);
+  dist += speed * d;
+
+  /* gap dynamics */
+  if (dashT > 0){
+    dashT -= d;
+    const p = 1 - Math.max(dashT, 0) / DASH_DUR;
+    gap = GAP_MAX * (1 - Math.pow(1 - p, 3));
+  } else if (celebT <= 0){
+    if (player.stumbleT <= 0) gap -= 34 * d;
+    gap = Math.min(gap, GAP_MAX);
+    if (gap <= 0 && player.stumbleT <= 0) squeeze();
+  }
+
+  /* player physics */
+  const pl = player;
+  pl.buffer -= d;
+  if (pl.stumbleT > 0){
+    pl.stumbleT -= d;
+    if (pl.stumbleT <= 0) pl.invulnT = 1.2;
+  } else if (pl.buffer > 0 && pl.grounded){
+    doJump(pl); sfx.jump();
+  }
+  pl.invulnT -= d;
+  stepFigure(pl, d);
+  pl.runPhase += d * (8 + speed / 60);
+
+  /* runner physics + auto-jump */
+  const ru = runner;
+  const rx = runnerX();
+  if (ru.grounded){
+    for (const o of obstacles){
+      if (o.toppled) continue;
+      const relV = speed + (o.extraV || 0);
+      const dx = o.x - rx;
+      if (dx > 0 && dx < relV * 0.33 + 46){ doJump(ru); break; }
+    }
+  }
+  stepFigure(ru, d);
+  ru.runPhase += d * (8 + speed / 60);
+  ru.lookBackT -= d;
+  if (ru.lookBackT < -4 - Math.random()*3) ru.lookBackT = 0.9;
+  ru.squashT -= d;
+
+  /* obstacles */
+  spawnX -= speed * d;
+  if (spawnX <= 0){ spawnObstacle(); spawnX = scheduleGap(); }
+  for (const o of obstacles){
+    o.x -= (speed + (o.extraV || 0)) * d;
+    if (o.toppled) o.wob += d;
+  }
+  obstacles = obstacles.filter(o => o.x > -160);
+
+  /* collision (forgiving; the squeeze celebration + escape dash are safe time) */
+  if (pl.stumbleT <= 0 && pl.invulnT <= 0 && celebT <= 0 && dashT <= 0){
+    const pTop = pl.y - 118, pL = chaserX - 18, pR = chaserX + 18;
+    for (const o of obstacles){
+      if (o.toppled) continue;
+      const oL = o.x + o.w * 0.18, oR = o.x + o.w * 0.82;
+      const oTop = groundY - o.h * 0.82;
+      if (pR > oL && pL < oR && pl.y > oTop && pTop < groundY){
+        o.toppled = 1;
+        pl.stumbleT = 0.7;
+        gap = Math.min(GAP_MAX, gap + 170);
+        sweat(chaserX, pl.y);
+        pop(chaserX, pl.y - 150, "oof!", false);
+        sfx.wah();
+        break;
+      }
+    }
+  }
+
+  /* razberries */
+  berryTimer -= d;
+  if (berryTimer <= 0){
+    berries.push({ x: worldW + 60, y: groundY - (130 + Math.random()*85), t: Math.random()*6 });
+    berryTimer = 6 + Math.random()*3;
+  }
+  for (const b of berries){ b.x -= speed * d; b.t += d; }
+  berries = berries.filter(b => {
+    if (b.x < -40) return false;
+    const dx = b.x - chaserX, dy = b.y - (player.y - 70);
+    if (dx*dx + dy*dy < 42*42){
+      gap = Math.max(0, gap - 44);
+      sfx.squeak();
+      pop(b.x, b.y - 24, "yum!", false);
+      for (let i = 0; i < 4; i++)
+        particles.push({ kind:"puff", x: b.x, y: b.y, vx:(Math.random()-.5)*160,
+                         vy:(Math.random()-.5)*160, r: 5, t: 0, life: 0.35 });
+      return false;
+    }
+    return true;
+  });
+
+  /* particles / pops */
+  for (const p of particles){
+    p.t += d;
+    p.x += (p.vx || 0) * d; p.y += (p.vy || 0) * d;
+    if (p.kind === "heart"){ p.vy += 500 * d; p.rot += p.vr * d; }
+    if (p.kind === "sweat"){ p.vy += 900 * d; }
+  }
+  particles = particles.filter(p => p.t < p.life);
+  for (const t of pops) t.t += d;   // same clock as particles so slow-mo stretches both
+  pops = pops.filter(t => t.t < t.life);
+
+  /* scenery */
+  stepClouds(d);
+}
+function stepFigure(f, d){
+  if (!f.grounded){
+    f.vy += GRAV * d;
+    f.y += f.vy * d;
+    if (f.y >= groundY){
+      f.y = groundY; f.vy = 0; f.grounded = true;
+      if (f === player){ puff(chaserX, groundY); }
+    }
+  } else {
+    f.y = groundY;
+  }
+}
+function runnerX(){ return chaserX + 64 + gap; }
+function squeeze(){
+  hearts += 1; lifetime += 1;
+  lsSet("tushyrun_life", String(lifetime));
+  updateHud();
+  hitstopT = 0.09; celebT = CELEB_DUR;
+  runner.squashT = 0.55;
+  lastSqueezePhrase = (lastSqueezePhrase + 1) % PHRASES.length;
+  pop(runnerX(), runner.y - 190, PHRASES[lastSqueezePhrase], true);
+  burstHearts(runnerX(), runner.y - 70, 13);
+  sfx.honk();
+}
+
+let boilT = 0, lastBoil = 0;
+function boil(){
+  boilT += 1;
+}
+
+/* ---------- drawing helpers ---------- */
+function line(x1, y1, x2, y2, j1, j2){
+  ctx.moveTo(x1 + jit(j1), y1 + jit(j1 + 50));
+  ctx.lineTo(x2 + jit(j2), y2 + jit(j2 + 50));
+}
+function stroke(color, w){
+  ctx.strokeStyle = color; ctx.lineWidth = w;
+  ctx.lineCap = "round"; ctx.lineJoin = "round";
+  ctx.stroke();
+}
+
+/* ---------- figures ---------- */
+function drawChaser(x, y, f){
+  const ink = P.ink;
+  ctx.save();
+  ctx.translate(x, y);
+  if (f.stumbleT > 0){
+    const p = 1 - f.stumbleT / 0.7;
+    ctx.translate(0, -55);
+    ctx.rotate(p * Math.PI * 2);
+    ctx.translate(0, 55);
+  } else if (f.invulnT > 0 && Math.floor(f.invulnT * 12) % 2 === 0){
+    ctx.globalAlpha = 0.45;
+  }
+  ctx.rotate(0.1);
+  const ph = f.runPhase;
+  const airborne = !f.grounded;
+  /* legs */
+  ctx.beginPath();
+  for (let s = 0; s < 2; s++){
+    const a = airborne ? (s ? 0.8 : -0.5) : Math.sin(ph + s * Math.PI) * 0.85;
+    const kx = Math.sin(a) * 34, ky = -Math.cos(a) * 6;
+    const fx = kx + Math.sin(a - 0.5) * 30, fy = airborne ? -34 : 0;
+    ctx.moveTo(jit(s), -62 + jit(s + 9));
+    ctx.quadraticCurveTo(kx, -34 + ky, fx + jit(s + 3), fy - (airborne ? 0 : Math.max(0, Math.sin(ph + s*Math.PI)) * 16));
+  }
+  stroke(ink, 7);
+  /* body */
+  ctx.beginPath();
+  line(0, -62, 10, -118, 1, 2);
+  stroke(ink, 7);
+  /* arms — both stretched forward, grabby */
+  const grab = Math.sin(ph * 2.2) * 0.5 + 0.5;   // 0 closed → 1 open
+  for (let s = 0; s < 2; s++){
+    const ay = -112 + s * 14;
+    const hx = 52 + s * 6, hy = ay + 8 + jit(s + 20, 2);
+    ctx.beginPath();
+    ctx.moveTo(8 + jit(s+5), ay + jit(s+6));
+    ctx.quadraticCurveTo(30, ay - 4, hx, hy);
+    stroke(ink, 6.5);
+    /* grabby hand: palm + fingers that open/close */
+    ctx.beginPath();
+    ctx.arc(hx + 6, hy, 7.5, 0, Math.PI*2);
+    stroke(ink, 4.5);
+    ctx.beginPath();
+    for (let fi = 0; fi < 3; fi++){
+      const fa = -0.7 + fi * 0.55 + grab * 0.5;
+      line(hx + 6 + Math.cos(fa)*7, hy + Math.sin(fa)*7,
+           hx + 6 + Math.cos(fa)*(13 + grab*5), hy + Math.sin(fa)*(13 + grab*5),
+           s*10+fi, s*10+fi+1);
+    }
+    stroke(ink, 3.5);
+  }
+  /* head */
+  const hx0 = 14, hy0 = -142;
+  ctx.beginPath();
+  ctx.arc(hx0 + jit(30), hy0 + jit(31), 25, 0, Math.PI*2);
+  stroke(ink, 7);
+  /* ponytail */
+  ctx.beginPath();
+  ctx.moveTo(hx0 - 20, hy0 - 12);
+  ctx.quadraticCurveTo(hx0 - 44, hy0 - 22 + jit(33, 4), hx0 - 40, hy0 + 4 + jit(34, 4));
+  stroke(ink, 5.5);
+  /* face: determined eyes + open smile */
+  ctx.fillStyle = ink;
+  ctx.beginPath(); ctx.arc(hx0 + 8, hy0 - 5, 3.2, 0, Math.PI*2); ctx.fill();
+  ctx.beginPath(); ctx.arc(hx0 + 19, hy0 - 5, 3.2, 0, Math.PI*2); ctx.fill();
+  ctx.beginPath();
+  ctx.arc(hx0 + 13, hy0 + 6, 8, 0.15, Math.PI - 0.15);
+  stroke(ink, 4);
+  ctx.restore();
+}
+function drawRunner(x, y, f){
+  const ink = P.ink;
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(-0.06);
+  const ph = f.runPhase;
+  const airborne = !f.grounded;
+  /* legs */
+  ctx.beginPath();
+  for (let s = 0; s < 2; s++){
+    const a = airborne ? (s ? 0.9 : -0.4) : Math.sin(ph + s * Math.PI) * 0.9;
+    const kx = Math.sin(a) * 34;
+    const fx = kx + Math.sin(a - 0.5) * 30, fy = airborne ? -30 : 0;
+    ctx.moveTo(jit(s+40), -60 + jit(s + 49));
+    ctx.quadraticCurveTo(kx, -32, fx + jit(s + 43), fy - (airborne ? 0 : Math.max(0, Math.sin(ph + s*Math.PI)) * 16));
+  }
+  stroke(ink, 7);
+  /* THE TUSHY — two proud cheeks, jiggling */
+  const squash = f.squashT > 0 ? 1 : 0;
+  const jig = Math.sin(ph * 1.9);
+  const cw = 24 * (1 + 0.10*jig) * (squash ? 1.45 : 1);
+  const chh = 26 * (1 - 0.08*jig) * (squash ? 0.55 : 1);
+  ctx.fillStyle = P.cheeks;
+  for (let s = 0; s < 2; s++){
+    const cy = -74 + s * 30 + jig * 3 * (s ? -1 : 1);
+    ctx.beginPath();
+    ctx.ellipse(-26 + jit(s+60, 1.5), cy, cw, chh, -0.15, 0, Math.PI*2);
+    ctx.fill();
+    stroke(P.cheekLine, 5);
+  }
+  if (squash){ // little starburst when squeezed
+    ctx.beginPath();
+    for (let i = 0; i < 5; i++){
+      const a = i * 1.256 + 0.4;
+      line(-26 + Math.cos(a)*46, -60 + Math.sin(a)*46,
+           -26 + Math.cos(a)*60, -60 + Math.sin(a)*60, i+70, i+71);
+    }
+    stroke(P.pink, 4);
+  }
+  /* body */
+  ctx.beginPath();
+  line(0, -60, -6, -118, 44, 45);
+  stroke(ink, 7);
+  /* pumping arms */
+  for (let s = 0; s < 2; s++){
+    const a = Math.sin(ph + s * Math.PI) * 0.9;
+    ctx.beginPath();
+    ctx.moveTo(-5 + jit(s+46), -108 + jit(s+47));
+    ctx.quadraticCurveTo(Math.sin(a)*26 - 4, -92, Math.sin(a)*34 - 2, -78 + Math.cos(a)*10);
+    stroke(ink, 6.5);
+  }
+  /* head */
+  const hx0 = -10, hy0 = -142;
+  ctx.beginPath();
+  ctx.arc(hx0 + jit(50), hy0 + jit(51), 25, 0, Math.PI*2);
+  stroke(ink, 7);
+  /* face: looks back when taunting or squeezed */
+  const back = f.lookBackT > 0 || f.squashT > 0;
+  ctx.fillStyle = ink;
+  if (back){
+    ctx.beginPath(); ctx.arc(hx0 - 14, hy0 - 5, 3.4, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(hx0 - 4, hy0 - 5, 3.4, 0, Math.PI*2); ctx.fill();
+    if (f.squashT > 0){ // startled O mouth
+      ctx.beginPath(); ctx.arc(hx0 - 9, hy0 + 8, 5.5, 0, Math.PI*2); stroke(ink, 4);
+    } else {            // cheeky grin back at you
+      ctx.beginPath(); ctx.arc(hx0 - 9, hy0 + 5, 8, 0.35, Math.PI - 0.35); stroke(ink, 4);
+    }
+  } else {
+    ctx.beginPath(); ctx.arc(hx0 - 2, hy0 - 5, 3.2, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(hx0 + 9, hy0 - 5, 3.2, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath();
+    ctx.arc(hx0 + 4, hy0 + 6, 7, 0.2, Math.PI - 0.4);
+    stroke(ink, 4);
+  }
+  ctx.restore();
+}
+
+/* ---------- obstacles / berries ---------- */
+function drawObstacle(o){
+  ctx.save();
+  ctx.translate(o.x + o.w/2, groundY);
+  if (o.toppled){
+    const p = Math.min(1, o.wob * 3);
+    ctx.rotate(-p * 1.1);
+    ctx.globalAlpha = 1 - Math.max(0, o.wob - 1.2) * 2;
+  }
+  const ink = P.ink;
+  if (o.kind === "cat"){
+    ctx.fillStyle = P.cheeks;
+    ctx.beginPath(); ctx.ellipse(0, -24, 34, 22, 0, 0, Math.PI*2); ctx.fill(); stroke(ink, 5);
+    ctx.beginPath(); ctx.arc(24, -42, 14, 0, Math.PI*2);
+    ctx.fillStyle = P.cheeks; ctx.fill(); stroke(ink, 5);
+    ctx.beginPath(); // ears
+    line(15, -52, 12, -62, 80, 81); line(31, -53, 35, -63, 82, 83);
+    stroke(ink, 4);
+    ctx.beginPath(); // tail flick
+    ctx.moveTo(-30, -28);
+    ctx.quadraticCurveTo(-52, -34 + Math.sin(boilT*0.1 + o.seed)*8, -50, -54 + Math.sin(boilT*0.13 + o.seed)*6);
+    stroke(ink, 5);
+    ctx.fillStyle = ink; // sleeping eyes
+    ctx.beginPath(); ctx.arc(20, -43, 1.6, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(29, -43, 1.6, 0, Math.PI*2); ctx.fill();
+  } else if (o.kind === "basket"){
+    ctx.fillStyle = P.teal;
+    ctx.globalAlpha *= 0.85;
+    ctx.beginPath();
+    ctx.moveTo(-32, 0); ctx.lineTo(-26, -44); ctx.lineTo(26, -44); ctx.lineTo(32, 0);
+    ctx.closePath(); ctx.fill();
+    ctx.globalAlpha = o.toppled ? ctx.globalAlpha : 1;
+    stroke(ink, 5);
+    ctx.beginPath(); // spilling sock + shirt
+    ctx.ellipse(-6, -50, 13, 8, 0.4, 0, Math.PI*2);
+    ctx.fillStyle = P.cheeks; ctx.fill(); stroke(ink, 4);
+    ctx.beginPath();
+    ctx.ellipse(12, -48, 9, 6, -0.5, 0, Math.PI*2);
+    ctx.fillStyle = P.sun; ctx.fill(); stroke(ink, 4);
+    ctx.beginPath(); line(-22, -14, 22, -14, 84, 85); stroke(ink, 3);
+    ctx.beginPath(); line(-24, -28, 24, -28, 86, 87); stroke(ink, 3);
+  } else if (o.kind === "plant"){
+    ctx.fillStyle = P.coral;
+    ctx.beginPath();
+    ctx.moveTo(-20, 0); ctx.lineTo(-16, -30); ctx.lineTo(16, -30); ctx.lineTo(20, 0);
+    ctx.closePath(); ctx.fill(); stroke(ink, 5);
+    ctx.beginPath(); // leaves
+    for (let i = 0; i < 3; i++){
+      const a = -0.9 + i * 0.9;
+      ctx.moveTo(0, -30);
+      ctx.quadraticCurveTo(Math.sin(a)*26, -52, Math.sin(a)*30, -66 + jit(i+90, 3));
+    }
+    stroke(P.berryLeaf, 6);
+  } else if (o.kind === "roomba"){
+    ctx.fillStyle = P.inkSoft;
+    ctx.beginPath(); ctx.ellipse(0, -12, 36, 13, 0, 0, Math.PI*2); ctx.fill(); stroke(ink, 4);
+    ctx.fillStyle = P.teal;
+    ctx.beginPath(); ctx.arc(0, -18, 5, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); // lil dust trail
+    line(40, -8, 54, -10, 92, 93); line(44, -16, 58, -20, 94, 95);
+    stroke(P.inkSoft, 3);
+  }
+  ctx.restore();
+}
+function drawBerry(b){
+  ctx.save();
+  ctx.translate(b.x, b.y + Math.sin(b.t * 3) * 7);
+  ctx.fillStyle = P.berry;
+  const dots = [[0,-4],[-7,0],[7,0],[-4,7],[4,7],[0,13]];
+  for (const [dx,dy] of dots){
+    ctx.beginPath(); ctx.arc(dx, dy, 5.5, 0, Math.PI*2); ctx.fill();
+  }
+  ctx.beginPath();
+  ctx.moveTo(0, -8); ctx.quadraticCurveTo(6, -18, 12, -16);
+  stroke(P.berryLeaf, 4);
+  ctx.restore();
+}
+
+/* ---------- scenery ---------- */
+function drawSky(){
+  const g = ctx.createLinearGradient(0, 0, 0, worldH);
+  g.addColorStop(0, P.skyTop); g.addColorStop(1, P.skyBot);
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, worldW, worldH);
+  /* sun / moon */
+  const sx = worldW * 0.82, sy = worldH * 0.16;
+  ctx.fillStyle = P.sun;
+  ctx.beginPath();
+  if (MODE === "night"){
+    ctx.arc(sx, sy, 38, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = P.skyTop;
+    ctx.beginPath(); ctx.arc(sx + 16, sy - 8, 32, 0, Math.PI*2); ctx.fill();
+  } else {
+    ctx.arc(sx, sy, MODE === "evening" ? 46 : 40, 0, Math.PI*2); ctx.fill();
+  }
+  if (MODE === "night"){
+    for (let i = 0; i < 34; i++){
+      const x = rnd(i*3+1) * worldW, y = rnd(i*7+2) * groundY * 0.7;
+      ctx.globalAlpha = 0.35 + 0.6 * Math.abs(Math.sin(performance.now()/1000 * 1.5 + i));
+      ctx.fillStyle = "#fff";
+      ctx.beginPath(); ctx.arc(x, y, rnd(i+5) < 0.3 ? 2.4 : 1.4, 0, Math.PI*2); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+  for (const c of clouds){
+    ctx.fillStyle = P.cloud;
+    const cx = c.x * worldW, cy = c.y * worldH, s = c.s;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 26*s, 0, Math.PI*2);
+    ctx.arc(cx + 26*s, cy + 4*s, 20*s, 0, Math.PI*2);
+    ctx.arc(cx - 26*s, cy + 6*s, 18*s, 0, Math.PI*2);
+    ctx.fill();
+  }
+}
+function drawHills(){
+  for (const [par, col, rmin, rvar, gapW] of [[0.22, P.hillFar, 90, 120, 300], [0.45, P.hillNear, 60, 90, 260]]){
+    const off = dist * par;
+    ctx.fillStyle = col;
+    const k0 = Math.floor(off / gapW) - 1;
+    for (let k = k0; k < k0 + Math.ceil(worldW / gapW) + 3; k++){
+      const r = rmin + rnd(k * 13 + par * 100) * rvar;
+      const cx = k * gapW - off + rnd(k+par) * 60;
+      ctx.beginPath();
+      ctx.arc(cx, groundY + r * 0.55, r, Math.PI, 0);
+      ctx.fill();
+    }
+  }
+}
+function drawGround(){
+  ctx.beginPath();
+  const seg = 90;
+  let first = true;
+  for (let x = -20; x <= worldW + 40; x += seg){
+    const y = groundY + jit(Math.floor((x + dist) / seg), 3);
+    if (first){ ctx.moveTo(x, y); first = false; }
+    else ctx.lineTo(x, y);
+  }
+  stroke(P.ground, 6);
+  /* grass tufts + flowers, procedurally recycled */
+  const tuft = 110;
+  const k0 = Math.floor(dist / tuft);
+  for (let k = k0; k < k0 + Math.ceil(worldW / tuft) + 2; k++){
+    const x = k * tuft - dist + rnd(k) * 60;
+    if (x < -20 || x > worldW + 20) continue;
+    ctx.beginPath();
+    for (let i = 0; i < 3; i++)
+      line(x + i*6 - 6, groundY + 2, x + i*7 - 8 + jit(k+i, 3), groundY - 12 - rnd(k+i)*8, k+i, k+i+1);
+    stroke(P.ground, 3);
+    if (rnd(k * 3) < 0.3 && MODE !== "night"){
+      ctx.fillStyle = rnd(k*5) < 0.5 ? P.pink : P.coral;
+      ctx.beginPath(); ctx.arc(x + 14, groundY - 16, 5, 0, Math.PI*2); ctx.fill();
+    }
+  }
+  if (MODE === "night"){
+    for (const f of fireflies){
+      const fx = ((f.x * worldW + Math.sin(performance.now()/1000 + f.p) * 40) % worldW + worldW) % worldW;
+      const fy = groundY - 40 - Math.sin(performance.now()/700 + f.p * 3) * 30;
+      const a = 0.4 + 0.5 * Math.abs(Math.sin(performance.now()/500 + f.p));
+      ctx.globalAlpha = a;
+      ctx.fillStyle = "#ffe9a8";
+      ctx.beginPath(); ctx.arc(fx, fy, 3.4, 0, Math.PI*2); ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+  }
+}
+
+/* ---------- particles / pops / meter ---------- */
+function drawHeart(x, y, r, rot, alpha){
+  ctx.save();
+  ctx.translate(x, y); ctx.rotate(rot); ctx.globalAlpha = alpha;
+  ctx.fillStyle = P.pink;
+  ctx.beginPath();
+  ctx.moveTo(0, r * 0.35);
+  ctx.bezierCurveTo(-r, -r * 0.45, -r * 0.5, -r * 1.1, 0, -r * 0.35);
+  ctx.bezierCurveTo(r * 0.5, -r * 1.1, r, -r * 0.45, 0, r * 0.35);
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+}
+function drawParticles(){
+  for (const p of particles){
+    const a = 1 - p.t / p.life;
+    if (p.kind === "heart") drawHeart(p.x, p.y, p.r, p.rot, a);
+    else if (p.kind === "puff"){
+      ctx.globalAlpha = a * 0.5;
+      ctx.fillStyle = P.inkSoft;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r * (1 + p.t*2), 0, Math.PI*2); ctx.fill();
+      ctx.globalAlpha = 1;
+    } else if (p.kind === "sweat"){
+      ctx.globalAlpha = a;
+      ctx.fillStyle = P.teal;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+  }
+}
+function drawPops(){
+  ctx.textAlign = "center";
+  for (const t of pops){
+    const p = t.t / t.life;
+    const a = p < 0.7 ? 1 : 1 - (p - 0.7) / 0.3;
+    const size = t.big ? 64 + Math.sin(Math.min(p*3, 1) * Math.PI) * 14 : 30;
+    ctx.font = "700 " + size + "px Fredoka, ui-rounded, sans-serif";
+    ctx.globalAlpha = a;
+    ctx.lineWidth = 8; ctx.lineJoin = "round";
+    ctx.strokeStyle = MODE === "night" ? "#03171d" : "#fff8ed";
+    ctx.strokeText(t.text, t.x, t.y - p * 60);
+    ctx.fillStyle = t.big ? P.pink : P.teal;
+    ctx.fillText(t.text, t.x, t.y - p * 60);
+    ctx.globalAlpha = 1;
+  }
+}
+function drawMeter(){
+  const mw = Math.min(300, worldW * 0.4), mh = 12;
+  const mx = (worldW - mw) / 2, my = 34;
+  ctx.fillStyle = P.meterBg;
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(mx, my, mw, mh, 6); else ctx.rect(mx, my, mw, mh);
+  ctx.fill();
+  const p = 1 - Math.max(0, Math.min(1, gap / GAP_MAX));
+  ctx.fillStyle = P.pink;
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(mx, my, Math.max(mh, mw * p), mh, 6); else ctx.rect(mx, my, Math.max(mh, mw * p), mh);
+  ctx.fill();
+  /* mini tushy at the goal end */
+  ctx.fillStyle = P.cheeks;
+  for (let s = 0; s < 2; s++){
+    ctx.beginPath();
+    ctx.ellipse(mx + mw + 24, my + mh/2 - 8 + s * 16, 12, 10, 0, 0, Math.PI*2);
+    ctx.fill(); stroke(P.cheekLine, 3);
+  }
+  drawHeart(mx + Math.max(mh, mw * p), my + mh/2, 10, 0, 1);
+}
+
+/* ---------- title & pause ---------- */
+function drawLogoTushy(cx, cy, sc){
+  ctx.save();
+  ctx.translate(cx, cy); ctx.scale(sc, sc);
+  const wob = Math.sin(performance.now()/400) * 0.04;
+  ctx.rotate(wob);
+  /* Vijay's sketch: two big cheek strokes + a smiley */
+  ctx.beginPath();
+  ctx.moveTo(-70 + jit(101,4), -90 + jit(102,4));
+  ctx.quadraticCurveTo(-120 + jit(103,5), 0, -60 + jit(104,4), 82 + jit(105,4));
+  stroke(P.teal, 13);
+  ctx.beginPath();
+  ctx.moveTo(5 + jit(106,4), -95 + jit(107,4));
+  ctx.quadraticCurveTo(-50 + jit(108,5), 0, 8 + jit(109,4), 86 + jit(110,4));
+  stroke(P.teal, 13);
+  ctx.beginPath();
+  ctx.moveTo(85 + jit(111,4), -92 + jit(112,4));
+  ctx.quadraticCurveTo(95 + jit(113,4), 0, 84 + jit(114,4), 84 + jit(115,4));
+  stroke(P.teal, 11);
+  /* smiley on the right cheek */
+  ctx.fillStyle = P.teal;
+  ctx.beginPath(); ctx.arc(30, -18, 5.5, 0, Math.PI*2); ctx.fill();
+  ctx.beginPath(); ctx.arc(58, -20, 5.5, 0, Math.PI*2); ctx.fill();
+  ctx.beginPath();
+  ctx.arc(44, -8, 22, 0.25, Math.PI - 0.25);
+  stroke(P.teal, 7);
+  ctx.restore();
+}
+function drawTitle(){
+  drawLogoTushy(worldW/2, worldH * 0.30, Math.min(1.15, worldW / 950));
+  ctx.textAlign = "center";
+  const ty = worldH * 0.30 + 170;
+  ctx.font = "700 " + Math.min(110, worldW * 0.11) + "px Fredoka, ui-rounded, sans-serif";
+  ctx.lineWidth = 12; ctx.lineJoin = "round";
+  ctx.strokeStyle = MODE === "night" ? "#03171d" : "#fff8ed";
+  ctx.strokeText("TushyRun", worldW/2, ty);
+  ctx.fillStyle = P.pink;
+  ctx.fillText("TushyRun", worldW/2, ty);
+  ctx.font = "500 30px Fredoka, ui-rounded, sans-serif";
+  ctx.fillStyle = P.ink;
+  ctx.fillText("catch that tushy · squeeze it · repeat", worldW/2, ty + 52);
+  ctx.font = "600 34px Fredoka, ui-rounded, sans-serif";
+  const blink = 0.55 + 0.45 * Math.sin(performance.now()/350);
+  ctx.globalAlpha = blink;
+  ctx.fillStyle = P.teal;
+  ctx.fillText("tap anywhere to chase", worldW/2, worldH * 0.72);
+  ctx.globalAlpha = 1;
+  // dedication lives in the #credit DOM link (title screen only)
+}
+function drawPause(){
+  ctx.fillStyle = MODE === "night" ? "rgba(3,23,29,.55)" : "rgba(255,248,237,.6)";
+  ctx.fillRect(0, 0, worldW, worldH);
+  ctx.textAlign = "center";
+  ctx.font = "700 56px Fredoka, ui-rounded, sans-serif";
+  ctx.fillStyle = P.ink;
+  ctx.fillText("paused", worldW/2, worldH * 0.42);
+  ctx.font = "500 28px Fredoka, ui-rounded, sans-serif";
+  ctx.fillStyle = P.inkSoft;
+  ctx.fillText("tap to keep chasing 🍑", worldW/2, worldH * 0.42 + 46);
+}
+
+/* ---------- render ---------- */
+function render(){
+  ctx.setTransform(DPR * S, 0, 0, DPR * S, 0, 0);
+  drawSky();
+  drawHills();
+  drawGround();
+  if (state === "title"){
+    drawTitle();
+    return;
+  }
+  for (const o of obstacles) drawObstacle(o);
+  for (const b of berries) drawBerry(b);
+  /* dash speed-lines behind the runner while it escapes */
+  if (dashT > 0.35){
+    ctx.beginPath();
+    const rx = runnerX();
+    for (let i = 0; i < 3; i++)
+      line(rx - 70 - i*26, runner.y - 60 - i*26, rx - 120 - i*30, runner.y - 60 - i*26, i+120, i+121);
+    stroke(P.inkSoft, 4);
+  }
+  drawRunner(runnerX(), runner.y, runner);
+  drawChaser(chaserX, player.y, player);
+  drawParticles();
+  drawPops();
+  drawMeter();
+  if (state === "pause") drawPause();
+}
+
+/* ---------- main loop ---------- */
+let lastT = 0;
+function frame(now){
+  if (!lastT) lastT = now;
+  let dt = Math.min((now - lastT) / 1000, 0.05);
+  lastT = now;
+  if (now - lastBoil > 110){ boilSeed = (boilSeed + 1) % 1000; lastBoil = now; }
+  update(dt);
+  if (state !== "pause" || pauseDirty){   // paused scene is static — render once, save battery
+    render();
+    pauseDirty = false;
+  }
+  requestAnimationFrame(frame);
+}
+
+/* ---------- go ---------- */
+resize();
+initScenery();
+resetRun();       // pre-warm a run behind the title so scenery scrolls
+state = "title";
+updateHud();
+requestAnimationFrame(frame);
+
+/* refresh day/evening/night if she leaves it open across a boundary */
+setInterval(() => {
+  const m = themeMode();
+  if (m !== MODE) applyMode(m);
+}, 30000);
+
+/* tiny hook for headless smoke-testing (harmless in normal play) */
+window.__tushy = {
+  get state(){ return state; }, setState, press,
+  get gap(){ return gap; }, set gap(v){ gap = v; },
+  get spawnX(){ return spawnX; }, set spawnX(v){ spawnX = v; },
+  get hearts(){ return hearts; },
+  get obstacles(){ return obstacles; },
+  update, render, resize,
+  player: () => player, runner: () => runner
+};
+</script>
+</body>
+</html>
