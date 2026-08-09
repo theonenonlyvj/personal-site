@@ -45,6 +45,7 @@
     background:var(--hud-bg); cursor:pointer;
   }
   .btns button:active{ transform:scale(.92); }
+  #speedB{ width:auto; padding:0 16px; font-size:17px; font-weight:600; border-radius:23px; }
   .hidden{ display:none !important; }
   #credit{ position:fixed; left:50%; transform:translateX(-50%);
     bottom:calc(12px + env(safe-area-inset-bottom)); z-index:5;
@@ -62,6 +63,7 @@
     <div id="life"></div>
   </div>
   <div class="btns">
+    <button id="speedB" aria-label="speed"></button>
     <button id="muteB" aria-label="sound">🔊</button>
     <button id="pauseB" aria-label="pause" class="hidden">⏸</button>
   </div>
@@ -252,6 +254,18 @@ pauseB.addEventListener("pointerdown", e => {
   if (state === "play") setState("pause");
   else if (state === "pause") setState("play");
 });
+const speedB = document.getElementById("speedB");
+let fastMode = lsGet("tushyrun_speed") === "fast";
+function setFast(v){
+  fastMode = v;
+  lsSet("tushyrun_speed", v ? "fast" : "slow");
+  speedB.textContent = fastMode ? "🐇 fast" : "🐢 slow";
+}
+speedB.addEventListener("pointerdown", e => {
+  e.stopPropagation(); e.preventDefault();
+  setFast(!fastMode);
+});
+setFast(fastMode);
 const creditEl = document.getElementById("credit");
 creditEl.addEventListener("pointerdown", e => e.stopPropagation());
 function setState(s){
@@ -259,6 +273,7 @@ function setState(s){
   pauseDirty = true;
   pauseB.classList.toggle("hidden", s === "title");
   pauseB.textContent = s === "pause" ? "▶️" : "⏸";
+  speedB.classList.toggle("hidden", s === "play");
   creditEl.classList.toggle("hidden", s !== "title");
 }
 
@@ -354,7 +369,7 @@ function update(dt){
   const d = dt * ts;
 
   playT += d;
-  speed = Math.min(540, 300 + playT * 1.2 + hearts * 5);
+  speed = Math.min(540, 300 + playT * 1.2 + hearts * 5) * (fastMode ? 1.35 : 1);
   dist += speed * d;
 
   /* gap dynamics */
@@ -363,7 +378,7 @@ function update(dt){
     const p = 1 - Math.max(dashT, 0) / DASH_DUR;
     gap = GAP_MAX * (1 - Math.pow(1 - p, 3));
   } else if (celebT <= 0){
-    if (player.stumbleT <= 0) gap -= 34 * d;
+    if (player.stumbleT <= 0) gap -= (fastMode ? 44 : 34) * d;   // fast mode: quicker squeezes too
     gap = Math.min(gap, GAP_MAX);
     if (gap <= 0 && player.stumbleT <= 0) squeeze();
   }
@@ -1008,6 +1023,7 @@ window.__tushy = {
   get state(){ return state; }, setState, press,
   get gap(){ return gap; }, set gap(v){ gap = v; },
   get spawnX(){ return spawnX; }, set spawnX(v){ spawnX = v; },
+  get speed(){ return speed; }, get fast(){ return fastMode; }, setFast,
   get hearts(){ return hearts; },
   get obstacles(){ return obstacles; },
   update, render, resize,
