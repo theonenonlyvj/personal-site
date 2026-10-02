@@ -36,7 +36,8 @@ test('Home features exactly the five chosen projects, in order, plus a "see all"
   const seeAll = screen.getByRole('link', { name: /see all/i })
   expect(seeAll).toHaveAttribute('href', '/projects')
   // the teaser names a few of the projects that aren't on the home page
-  expect(seeAll.textContent).toMatch(/See Who Fly|TallyPad|TushyRun/)
+  expect(seeAll.textContent).toMatch(/See Who Fly/)
+  expect(seeAll.textContent).not.toMatch(/JustDosas/)
 })
 
 test('About surfaces the real proof points', () => {

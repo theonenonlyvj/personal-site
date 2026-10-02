@@ -16,28 +16,6 @@ export const projects: Project[] = [
     cta: 'Play',
   },
   {
-    slug: 'see-who-fly',
-    name: 'See Who Fly',
-    blurb: 'A live radar of the planes about to fly over your house, with a countdown so you can step outside and look up. Knows when it is a plane you have flown on.',
-    repo: 'https://github.com/theonenonlyvj/see-who-fly',
-    liveUrl: 'https://github.com/theonenonlyvj/see-who-fly',
-    status: 'live',
-    thumbnail: '/screenshots/see-who-fly.png',
-    featured: true,
-    cta: 'View code',
-  },
-  {
-    slug: 'tallypad',
-    name: 'TallyPad',
-    blurb: 'Open-source replacement firmware for the Talli baby-tracker button pad. Fully local, no cloud, no subscription, and every button means whatever you decide.',
-    repo: 'https://github.com/theonenonlyvj/TallyPad',
-    liveUrl: 'https://github.com/theonenonlyvj/TallyPad',
-    status: 'live',
-    thumbnail: '/screenshots/tallypad.png',
-    featured: false,
-    cta: 'View code',
-  },
-  {
     slug: 'see-me-fly',
     name: 'See Me Fly',
     blurb: 'An offline flight-history dashboard — 20 cards of stats from a flight-log CSV, all on your machine.',
@@ -51,6 +29,17 @@ export const projects: Project[] = [
       url: 'https://theonenonlyvj.github.io/see-me-fly/?k=VIJAY12345',
       label: "Visualize Vijay's Flights",
     },
+  },
+  {
+    slug: 'see-who-fly',
+    name: 'See Who Fly',
+    blurb: 'A live radar of the planes about to fly over your house, with a countdown so you can step outside and look up. Knows when it’s a plane you’ve flown on.',
+    repo: 'https://github.com/theonenonlyvj/see-who-fly',
+    liveUrl: 'https://github.com/theonenonlyvj/see-who-fly',
+    status: 'live',
+    thumbnail: '/screenshots/see-who-fly.png',
+    featured: true,
+    cta: 'View code',
   },
   {
     slug: 'tushyrun',
@@ -98,6 +87,17 @@ export const projects: Project[] = [
     featured: false,
     thumbFit: 'contain',
     cta: 'Follow',
+  },
+  {
+    slug: 'tallypad',
+    name: 'TallyPad',
+    blurb: 'Open-source replacement firmware for the Talli baby-tracker button pad. Fully local, no cloud, no subscription, and every button means whatever you decide.',
+    repo: 'https://github.com/theonenonlyvj/TallyPad',
+    liveUrl: 'https://github.com/theonenonlyvj/TallyPad',
+    status: 'live',
+    thumbnail: '/screenshots/tallypad.png',
+    featured: false,
+    cta: 'View code',
   },
   {
     slug: 'iota',
@@ -148,10 +148,11 @@ export const projects: Project[] = [
 ]
 
 // The home page shows exactly these five, in this order (VJ 2026-10-02), then a "see all" teaser.
+// (This list, not the `featured` flag, decides the home page.)
 export const HOME_SLUGS = ['vwiki-race', 'justdosas', 'jaipur', 'see-me-fly', 'health-downloader']
 
 export function homeProjects(): Project[] {
-  return HOME_SLUGS.map(slug => projects.find(p => p.slug === slug)!).filter(Boolean)
+  return HOME_SLUGS.map(slug => projects.find(p => p.slug === slug)).filter((p): p is Project => p !== undefined)
 }
 
 export function featuredProjects(): Project[] {
