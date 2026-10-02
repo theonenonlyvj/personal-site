@@ -1,4 +1,4 @@
-import { projects, featuredProjects } from '../data/projects'
+import { projects, featuredProjects, homeProjects, HOME_SLUGS } from '../data/projects'
 
 test('every project has required fields and a unique slug', () => {
   const slugs = new Set<string>()
@@ -30,4 +30,14 @@ test('no project text leaks contact info (stealth)', () => {
   const blob = projects.map(p => `${p.name} ${p.blurb}`).join(' ')
   expect(blob).not.toMatch(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i)
   expect(blob).not.toMatch(/\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/)
+})
+
+test('home projects are exactly five real projects', () => {
+  expect(HOME_SLUGS).toHaveLength(5)
+  expect(homeProjects().map(p => p.slug)).toEqual(HOME_SLUGS)
+})
+
+test('TallyPad is listed with its public repo', () => {
+  const t = projects.find(p => p.slug === 'tallypad')
+  expect(t?.repo).toBe('https://github.com/theonenonlyvj/TallyPad')
 })

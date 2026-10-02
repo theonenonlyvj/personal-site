@@ -1,4 +1,5 @@
-import { projects } from '../data/projects'
+import { Link } from 'react-router-dom'
+import { projects, homeProjects } from '../data/projects'
 import { ProjectCard } from '../components/ProjectCard'
 
 export default function Home() {
@@ -23,8 +24,27 @@ export default function Home() {
           gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
         }}
       >
-        {projects.map(p => <ProjectCard key={p.slug} project={p} />)}
+        {homeProjects().map(p => <ProjectCard key={p.slug} project={p} />)}
+        <SeeAllCard />
       </div>
     </section>
+  )
+}
+
+function SeeAllCard() {
+  const onHome = new Set(homeProjects().map(p => p.slug))
+  const more = projects.filter(p => !onHome.has(p.slug))
+  return (
+    <Link
+      to="/projects"
+      style={{
+        background: 'var(--grad-hero)', color: '#fff', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow)',
+        textDecoration: 'none', display: 'flex', flexDirection: 'column', justifyContent: 'center',
+        gap: 12, padding: 'var(--pad)', minHeight: 280,
+      }}
+    >
+      <span style={{ fontFamily: 'var(--font-display)', fontSize: 30, fontWeight: 700 }}>See all {projects.length} projects →</span>
+      <span style={{ opacity: 0.9 }}>{more.slice(0, 4).map(p => p.name).join(' · ')}{more.length > 4 ? ' · and more' : ''}</span>
+    </Link>
   )
 }

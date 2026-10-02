@@ -29,11 +29,14 @@ test('Home shows the playground hero', () => {
   expect(screen.getByText(/welcome to my playground/i)).toBeInTheDocument()
 })
 
-test('Home shows every project', () => {
+test('Home features exactly the five chosen projects, in order, plus a "see all" teaser', () => {
   r(<Home />)
-  for (const p of projects) {
-    expect(screen.getByText(p.name)).toBeInTheDocument()
-  }
+  const names = screen.getAllByRole('heading', { level: 3 }).map(h => h.textContent)
+  expect(names).toEqual(['VWiki Race', 'JustDosas', 'Jaipur', 'See Me Fly', 'Health Downloader'])
+  const seeAll = screen.getByRole('link', { name: /see all/i })
+  expect(seeAll).toHaveAttribute('href', '/projects')
+  // the teaser names a few of the projects that aren't on the home page
+  expect(seeAll.textContent).toMatch(/See Who Fly|TallyPad|TushyRun/)
 })
 
 test('About surfaces the real proof points', () => {
