@@ -66,6 +66,17 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: 'see-who-fly',
+    name: 'See Who Fly',
+    blurb: 'A live radar of the planes about to fly over your house, with a countdown so you can step outside and look up. Knows when it is a plane you have flown on.',
+    repo: 'https://github.com/theonenonlyvj/see-who-fly',
+    liveUrl: 'https://github.com/theonenonlyvj/see-who-fly',
+    status: 'live',
+    thumbnail: '/screenshots/see-who-fly.png',
+    featured: true,
+    cta: 'View code',
+  },
+  {
     slug: 'tushyrun',
     name: 'TushyRun',
     blurb: 'A one-button runner made as a love letter to my pregnant wife — chase the tushy, jump the laundry, earn the squeeze. No game over, only giggles.',
