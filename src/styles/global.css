@@ -2,16 +2,88 @@
 html, body, #root { margin: 0; min-height: 100%; }
 body {
   font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
   color: var(--ink);
-  background: var(--mesh);
-  background-attachment: fixed;
+  background: var(--paper);
   -webkit-font-smoothing: antialiased;
 }
-h1, h2, h3 { font-family: var(--font-display); line-height: 1.05; margin: 0 0 0.4em; }
-a { color: var(--indigo); }
-.container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
-.grad-text {
-  background: var(--grad-hero);
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent; color: transparent;
+/* Engineering paper (VJ 2026-10-28, option E3): a fixed layer behind the page so the grid stays put while the content scrolls over it.
+   Page stays white; 20px minor grid in faint grey; every 5th line in a very faint red. A fixed pseudo-element instead of
+   background-attachment so it also works on iOS Safari. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(to right, rgba(200, 16, 46, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 16, 46, 0.045) 1px, transparent 1px),
+    linear-gradient(to right, rgba(17, 17, 17, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 17, 17, 0.05) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
 }
+#root { position: relative; z-index: 0; }
+::selection { background: var(--red); color: #fff; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 0.4em; text-wrap: balance; }
+a { color: var(--ink); text-decoration-color: var(--red); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+a:hover { color: var(--red); }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+@media (max-width: 640px) { .container { padding: 0 20px; } }
+
+/* Home: editorial rows */
+.brand { font-family: var(--font-brand); font-weight: 500; font-size: 32px; letter-spacing: -0.03em; line-height: 1; text-decoration: none; color: var(--ink); }
+.brand em { font-style: italic; color: var(--red); }
+.hero { padding: 56px 0 44px; border-bottom: 1px solid var(--hair); }
+.hero h1 { font-weight: 700; font-size: clamp(40px, 6vw, 70px); line-height: 1; letter-spacing: -0.03em; margin: 0; }
+.hero .lede { margin: 20px 0 0; font-size: 21px; line-height: 1.5; color: var(--ink-2); max-width: 64ch; }
+.row { display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; padding: 64px 0; border-bottom: 1px solid var(--hair); }
+.row.flip { grid-template-columns: 1.15fr 1fr; }
+.row.flip .shot { order: 2; }
+.row .shot { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: var(--hair-2); }
+.row .shot img, .row .shot .poster { display: block; width: 100%; height: 360px; object-fit: cover; }
+.row h3 { font-size: clamp(36px, 5vw, 54px); line-height: 1; margin: 0 0 16px; }
+.row p { margin: 0 0 22px; color: var(--ink-2); font-size: 18.5px; max-width: 42ch; }
+.links { display: flex; flex-wrap: wrap; gap: 10px 22px; font-weight: 700; align-items: baseline; font-family: var(--font-ui); font-size: 15.5px; }
+.nav-links { font-family: var(--font-ui); }
+.links .note { color: var(--red); }
+.links .soon { color: var(--ink-2); }
+.rest { display: block; padding: 56px 0 8px; text-decoration: none; color: var(--ink); }
+.rest .title { font-family: var(--font-display); font-weight: 700; font-size: 34px; letter-spacing: -0.02em; display: block; margin-bottom: 18px; }
+.rest:hover .title { color: var(--red); }
+.rest ul { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 56px; }
+.rest li { padding: 14px 0; border-bottom: 1px solid var(--hair); break-inside: avoid; display: flex; justify-content: space-between; gap: 12px; }
+.rest li b { font-family: var(--font-display); font-weight: 700; font-size: 22px; }
+.rest li span { color: var(--ink-2); font-size: 15px; text-align: right; }
+/* Desktop: every home project visible at a glance (VJ 2026-10-28). Phone keeps the stacked rows. */
+@media (min-width: 761px) {
+  .hero { padding: 44px 0 36px; }
+  .rows { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 32px; padding: 40px 0 36px; border-bottom: 1px solid var(--hair); }
+  .rows .row, .rows .row.flip { display: block; padding: 0; border-bottom: 0; }
+  .rows .row.flip .shot { order: 0; }
+  .rows .row .shot { margin-bottom: 14px; }
+  .rows .row .shot img, .rows .row .shot .poster { height: 190px; }
+  .rows .row h3 { font-size: clamp(24px, 2.2vw, 30px); margin-bottom: 8px; }
+  .rows .row p { font-size: 17.5px; margin-bottom: 12px; }
+  .rest { padding: 36px 0 8px; }
+  .rest .title { font-size: 28px; margin-bottom: 10px; }
+  .rest ul { columns: 3; column-gap: 32px; }
+  .rest li { padding: 10px 0; }
+  .rest li b { font-size: 19px; }
+}
+@media (max-width: 760px) {
+  .row, .row.flip { grid-template-columns: 1fr; gap: 24px; padding: 44px 0; }
+  .row.flip .shot { order: 0; }
+  .row .shot img, .row .shot .poster { height: 240px; }
+  .rest ul { columns: 1; }
+  .hero { padding: 40px 0 36px; }
+  .hero .lede { font-size: 18px; }
+  .brand { font-size: 24px; }
+  nav { flex-wrap: wrap; gap: 12px 16px !important; }
+  .nav-links { margin-left: 0 !important; gap: 18px !important; width: 100%; }
+}
+.about p { max-width: 62ch; }
+main > section > h1:first-child { margin-top: 48px; }

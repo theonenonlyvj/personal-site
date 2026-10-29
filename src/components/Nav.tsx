@@ -9,11 +9,11 @@ const links = [
 
 export function Nav() {
   return (
-    <nav style={{ display: 'flex', gap: 20, alignItems: 'center', padding: '20px 0' }}>
-      <NavLink to="/" end style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 20, textDecoration: 'none', color: 'var(--ink)' }}>
-        VR
+    <nav style={{ display: 'flex', gap: 20, alignItems: 'baseline', padding: '26px 0', borderBottom: '1px solid var(--ink)' }}>
+      <NavLink to="/" end className="brand" aria-label="theonenonlyvj, home">
+        theonenonly<em>vj</em>
       </NavLink>
-      <div style={{ display: 'flex', gap: 18, marginLeft: 'auto' }}>
+      <div className="nav-links" style={{ display: 'flex', gap: 28, marginLeft: 'auto', fontSize: 15 }}>
         {links.map(l => (
           <NavLink
             key={l.to}
@@ -22,7 +22,7 @@ export function Nav() {
             style={({ isActive }) => ({
               textDecoration: 'none',
               fontWeight: 600,
-              color: isActive ? 'var(--indigo)' : 'var(--ink-2)',
+              color: isActive ? 'var(--red)' : 'var(--ink-2)',
             })}
           >
             {l.label}

@@ -6,8 +6,7 @@ export default function Contact() {
     <section style={{ maxWidth: 560 }}>
       <h1>Contact</h1>
       <p>
-        Want to build something — or just nerd out about neurotech, health data, or board games?
-        I'm most responsive on LinkedIn.
+        Got a thought, a bug, a board game I should rebuild, or a better dosa? I'm easiest to reach on LinkedIn.
       </p>
       <a
         href={LINKEDIN_URL}
@@ -18,7 +17,7 @@ export default function Contact() {
           background: 'var(--grad-hero)', padding: '12px 22px', borderRadius: 999, textDecoration: 'none',
         }}
       >
-        Find me on LinkedIn →
+        Find me on LinkedIn
       </a>
       <ContactForm />
     </section>

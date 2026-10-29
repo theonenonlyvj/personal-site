@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     slug: 'vwiki-race',
     name: 'VWiki Race',
-    blurb: 'A Wikipedia navigation race — click from one article to another in as few hops as you can. Fresh daily challenges, streaks, and leaderboards.',
+    blurb: 'A Wikipedia race. Start on one article and reach another in as few clicks as you can. New challenges every day, with streaks and leaderboards.',
     repo: 'https://github.com/theonenonlyvj/vwiki-race',
     liveUrl: 'https://vwikirace.pages.dev/',
     status: 'live',
@@ -18,7 +18,7 @@ export const projects: Project[] = [
   {
     slug: 'see-me-fly',
     name: 'See Me Fly',
-    blurb: 'An offline flight-history dashboard — 20 cards of stats from a flight-log CSV, all on your machine.',
+    blurb: 'Every flight you have ever taken, turned into a dashboard. Feed it a flight-log CSV and get 20 cards of stats, all on your machine, nothing uploaded.',
     repo: 'https://github.com/theonenonlyvj/see-me-fly',
     liveUrl: 'https://theonenonlyvj.github.io/see-me-fly/',
     status: 'live',
@@ -33,7 +33,7 @@ export const projects: Project[] = [
   {
     slug: 'see-who-fly',
     name: 'See Who Fly',
-    blurb: 'A live radar of the planes about to fly over your house, with a countdown so you can step outside and look up. Knows when it’s a plane you’ve flown on.',
+    blurb: 'A live radar of the planes about to pass over your house, with a countdown so you can step outside and look up. It knows when it is one you have flown on.',
     repo: 'https://github.com/theonenonlyvj/see-who-fly',
     liveUrl: 'https://github.com/theonenonlyvj/see-who-fly',
     status: 'live',
@@ -44,7 +44,7 @@ export const projects: Project[] = [
   {
     slug: 'tushyrun',
     name: 'TushyRun',
-    blurb: 'A one-button runner made as a love letter to my pregnant wife — chase the tushy, jump the laundry, earn the squeeze. No game over, only giggles.',
+    blurb: 'A one-button runner I made for my pregnant wife. Chase the tushy, jump the laundry, earn the squeeze. No game over, only giggles.',
     repo: null,
     liveUrl: 'https://theonenonlyvj.github.io/personal-site/tushyrun/',
     status: 'live',
@@ -56,7 +56,7 @@ export const projects: Project[] = [
   {
     slug: 'jaipur',
     name: 'Jaipur',
-    blurb: 'A browser build of the two-player market-trading card game.',
+    blurb: 'The two-player market-trading card game, rebuilt for the browser so we can play it on the couch.',
     repo: 'https://github.com/theonenonlyvj/vjaipur',
     liveUrl: 'https://vjaipur-game.onrender.com/',
     status: 'live',
@@ -68,7 +68,7 @@ export const projects: Project[] = [
   {
     slug: 'mundial26',
     name: 'Mundial26',
-    blurb: 'A retro Panini sticker-album tracker for the 2026 World Cup — matches by date and host city.',
+    blurb: 'A retro Panini sticker-album tracker for the 2026 World Cup: every match by date and host city.',
     repo: 'https://github.com/theonenonlyvj/Mundial26',
     liveUrl: 'https://mundial26-app.onrender.com/',
     status: 'live',
@@ -79,7 +79,7 @@ export const projects: Project[] = [
   {
     slug: 'justdosas',
     name: 'JustDosas',
-    blurb: 'Wannabe food influencer — chasing the perfect dosa across continents, one golden bite at a time.',
+    blurb: 'Wannabe food influencer. Chasing the perfect dosa across continents, one golden bite at a time.',
     repo: null,
     liveUrl: 'https://www.instagram.com/justdosas',
     status: 'live',
@@ -91,7 +91,7 @@ export const projects: Project[] = [
   {
     slug: 'tallypad',
     name: 'TallyPad',
-    blurb: 'Open-source replacement firmware for the Talli baby-tracker button pad. Fully local, no cloud, no subscription, and every button means whatever you decide.',
+    blurb: 'Open-source firmware for the Talli baby-tracker button pad. Fully local: no cloud, no subscription, and every button means whatever you decide.',
     repo: 'https://github.com/theonenonlyvj/TallyPad',
     liveUrl: 'https://github.com/theonenonlyvj/TallyPad',
     status: 'live',
@@ -102,7 +102,7 @@ export const projects: Project[] = [
   {
     slug: 'iota',
     name: 'Iota',
-    blurb: 'A browser build of the compact tile-placement card game.',
+    blurb: 'The compact tile-placement card game, rebuilt for the browser.',
     repo: 'https://github.com/theonenonlyvj/viota',
     liveUrl: 'https://viota.pages.dev/',
     status: 'live',
@@ -114,7 +114,7 @@ export const projects: Project[] = [
   {
     slug: 'war',
     name: 'War',
-    blurb: 'A browser build of the classic card game.',
+    blurb: 'The classic card game, rebuilt for the browser. Yes, that War.',
     repo: 'https://github.com/theonenonlyvj/war_cards',
     liveUrl: 'https://vwar-game.onrender.com/',
     status: 'live',
@@ -126,7 +126,7 @@ export const projects: Project[] = [
   {
     slug: 'health-downloader',
     name: 'Health Downloader',
-    blurb: 'A local app that pulls all of your health records via OAuth2 into one place.',
+    blurb: 'Signs in to your patient portals and pulls every one of your health records into one place on your own machine.',
     repo: null,
     liveUrl: null,
     status: 'coming-soon',
@@ -137,7 +137,7 @@ export const projects: Project[] = [
   {
     slug: 'friend-ranker',
     name: 'Friend Ranker',
-    blurb: 'A tool that ranks who messages you most across every chat platform.',
+    blurb: 'Ranks who actually messages you the most, across every chat app you use.',
     repo: null,
     liveUrl: null,
     status: 'coming-soon',
