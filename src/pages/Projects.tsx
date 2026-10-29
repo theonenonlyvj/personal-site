@@ -6,8 +6,9 @@ export default function Projects() {
     <section>
       <h1>Projects</h1>
       <p style={{ color: 'var(--ink-2)', maxWidth: 560 }}>
-        Things I build for fun — neurotech-adjacent tools, data toys, and games.
+        Twelve things I wanted to exist. Games you can play right now, small tools for the house, and a couple still in the oven.
       </p>
+      <h2 style={{ position: 'absolute', left: -9999 }}>Everything, live and in progress</h2>
       <div
         style={{
           display: 'grid', gap: 'var(--gap)', marginTop: 24,

@@ -23,10 +23,10 @@ test('Projects page links live projects to their demo URLs', () => {
   for (const p of live) expect(hrefs).toContain(p.liveUrl)
 })
 
-test('Home shows the playground hero', () => {
+test('Home shows the landing blurb', () => {
   r(<Home />)
-  expect(screen.getByRole('heading', { name: /theonenonlyvj/i })).toBeInTheDocument()
-  expect(screen.getByText(/welcome to my playground/i)).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: /things i build for fun/i })).toBeInTheDocument()
+  expect(screen.getByText(/started as a question i could not drop/i)).toBeInTheDocument()
 })
 
 test('Home features exactly the five chosen projects, in order, plus a "see all" teaser', () => {

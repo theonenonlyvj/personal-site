@@ -35,7 +35,7 @@ export function ContactForm() {
   if (status === 'sent') {
     return (
       <p style={{ marginTop: 28, color: 'var(--ink-2)' }}>
-        Thanks — got your note. I'll see it next time I check. 🤝
+        Thanks, got your note. I'll see it next time I check. 🤝
       </p>
     )
   }
@@ -48,7 +48,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} style={{ marginTop: 28, display: 'flex', flexDirection: 'column', gap: 12 }}>
-      <p style={{ margin: 0, color: 'var(--ink-2)' }}>Or just drop a note:</p>
+      <p style={{ margin: 0, color: 'var(--ink-2)' }}>Or leave a note here:</p>
       <input name="name" type="text" required placeholder="Your name" style={inputStyle} autoComplete="off" />
       <input name="contact" type="text" placeholder="How to reach you back (optional)" style={inputStyle} autoComplete="off" />
       <textarea
@@ -83,7 +83,7 @@ export function ContactForm() {
         </button>
         {status === 'error' && (
           <span style={{ color: 'var(--coral, #ff3d57)', fontSize: 14 }}>
-            Something went wrong — LinkedIn's a safe bet.
+            Something went wrong. LinkedIn is a safe bet.
           </span>
         )}
       </div>

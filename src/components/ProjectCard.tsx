@@ -8,8 +8,8 @@ export function ProjectCard({ project }: { project: Project }) {
     <article
       style={{
         background: 'var(--card)', borderRadius: 'var(--radius)', overflow: 'hidden',
-        boxShadow: project.highlight ? 'var(--shadow), 0 0 0 4px rgba(255,61,87,.14)' : 'var(--shadow)',
-        border: project.highlight ? '2px solid var(--coral)' : '2px solid transparent',
+        boxShadow: 'var(--shadow)',
+        border: '1px solid var(--hair)',
         display: 'flex', flexDirection: 'column',
       }}
     >
@@ -26,9 +26,9 @@ export function ProjectCard({ project }: { project: Project }) {
             role="img"
             aria-label={project.name}
             style={{
-              width: '100%', aspectRatio: '16 / 10', background: 'var(--grad-hero)',
+              width: '100%', aspectRatio: '16 / 10', background: 'var(--hair-2)', color: 'var(--ink)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              color: '#fff', fontFamily: 'var(--font-display)', fontWeight: 600,
+              fontFamily: 'var(--font-display)', fontWeight: 600,
               fontSize: 26, textAlign: 'center', padding: 16,
             }}
           >
@@ -39,9 +39,8 @@ export function ProjectCard({ project }: { project: Project }) {
           <span
             style={{
               position: 'absolute', bottom: 12, left: 12,
-              background: 'var(--grad-hero)', color: '#fff', fontWeight: 700, fontSize: 13,
-              padding: '6px 12px', borderRadius: 999, letterSpacing: '.2px',
-              boxShadow: '0 2px 10px rgba(0,0,0,.28)',
+              background: '#fff', color: 'var(--red)', fontWeight: 700, fontSize: 13,
+              padding: '5px 10px', borderRadius: 'var(--radius-sm)',
             }}
           >
             {project.badge}
@@ -49,7 +48,7 @@ export function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
       <div style={{ padding: 'var(--pad)', display: 'flex', flexDirection: 'column', gap: 12, flex: 1 }}>
-        <h3 style={{ margin: 0 }}>{project.name}</h3>
+        <h3 style={{ margin: 0, fontSize: 28 }}>{project.name}</h3>
         <p style={{ margin: 0, color: 'var(--ink-2)', flex: 1 }}>{project.blurb}</p>
         <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
           {isLive ? (
@@ -58,8 +57,7 @@ export function ProjectCard({ project }: { project: Project }) {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                fontWeight: 600, textDecoration: 'none', color: '#fff',
-                background: 'var(--grad-hero)', padding: '8px 16px', borderRadius: 999,
+                fontWeight: 700, color: 'var(--ink)',
               }}
             >
               {project.cta} →
@@ -67,8 +65,7 @@ export function ProjectCard({ project }: { project: Project }) {
           ) : (
             <span
               style={{
-                fontWeight: 600, color: 'var(--ink-2)', background: 'var(--hair-2)',
-                padding: '8px 16px', borderRadius: 999,
+                fontWeight: 700, color: 'var(--ink-2)',
               }}
             >
               Coming soon
