@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../node_modules/@fontsource-variable/fraunces/index.css">
+<link rel="stylesheet" href="../node_modules/@fontsource-variable/fraunces/wght-italic.css">
+<link rel="stylesheet" href="../node_modules/@fontsource-variable/bricolage-grotesque/index.css">
+<link rel="stylesheet" href="../node_modules/@fontsource-variable/newsreader/index.css">
+<link rel="stylesheet" href="../src/styles/tokens.css">
+<style>
+  html,body{margin:0}
+  body{width:1200px;height:630px;overflow:hidden;color:var(--ink);background-color:var(--paper);
+    background-image:
+      linear-gradient(to right, rgba(200,16,46,0.055) 2px, transparent 2px),
+      linear-gradient(to bottom, rgba(200,16,46,0.055) 2px, transparent 2px),
+      linear-gradient(to right, rgba(17,17,17,0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(17,17,17,0.06) 1px, transparent 1px);
+    background-size:160px 160px,160px 160px,32px 32px,32px 32px;
+    -webkit-font-smoothing:antialiased}
+  .wrap{position:absolute;inset:0;padding:72px 84px;display:flex;flex-direction:column;justify-content:space-between}
+  .brand{font-family:var(--font-brand);font-weight:500;font-size:46px;letter-spacing:-0.03em;line-height:1}
+  .brand em{font-style:italic;color:var(--red)}
+  h1{font-family:var(--font-display);font-weight:700;font-size:112px;line-height:0.98;letter-spacing:-0.035em;margin:0;max-width:980px}
+  .lede{font-family:var(--font);font-size:31px;line-height:1.4;color:var(--ink-2);margin:26px 0 0;max-width:900px}
+  .foot{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--hair);padding-top:22px;font-family:var(--font-ui);font-weight:700;font-size:24px}
+  .foot .url{color:var(--ink-2);font-weight:500}
+  .rule{width:84px;height:6px;background:var(--red);margin:0 0 30px}
+</style></head><body>
+<div class="wrap">
+  <div class="brand">theonenonly<em>vj</em></div>
+  <div>
+    <div class="rule"></div>
+    <h1>Things I build for fun.</h1>
+    <p class="lede">Browser games, small tools for the house, a Wikipedia race, a dosa hunt. Each one started as a question I could not drop.</p>
+  </div>
+  <div class="foot"><span>Play &nbsp;·&nbsp; Projects &nbsp;·&nbsp; About</span><span class="url">theonenonlyvj.github.io</span></div>
+</div>
+</body></html>
