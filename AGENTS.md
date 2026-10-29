@@ -43,7 +43,7 @@ src/
   types.ts        the Project interface
   config.ts       CONTACT_ENDPOINT (contact-form backend URL)
   __tests__/      Vitest + Testing Library specs (incl. the privacy guardrail)
-public/           static assets served as-is (screenshots/, favicon.svg, og-paper.png)
+public/           static assets served as-is (screenshots/, favicon.svg, og-playground.png)
 apps-script/      the contact-form backend (Google Apps Script) + its setup README
 index.html        <head>: title, favicon, Open Graph / Twitter link-preview tags
 .github/workflows/deploy.yml   builds + publishes to GitHub Pages on push to main
@@ -94,7 +94,7 @@ The site is served under **`/personal-site/`**, not `/`. So:
   instructions live in **`apps-script/README.md`**. It uses `mode: 'no-cors'` (can't read the
   response → optimistic "sent"); a hidden honeypot field drops bots.
 - **Link previews (WhatsApp/iMessage/Slack):** Open Graph + Twitter tags in `index.html` +
-  `public/og-paper.png` (1200×630). `og:image` must be an absolute URL.
+  `public/og-playground.png` (1200×630). `og:image` must be an absolute URL.
 
 ## Portfolio-wide briefs (for agents working on Vijay's OTHER apps)
 
@@ -117,4 +117,4 @@ The site is served under **`/personal-site/`**, not `/`. So:
 `ORIENTATION.local.md` in this folder for pointers — never copy its referenced content into
 anything shipped here.*
 
-Link preview image: `public/og-paper.png` is rendered from `tools/og-image.html` (same tokens, fonts and paper grid as the site) with headless Chrome at 1200x630. Rename the file when you change it so link previews, which cache by URL, pick up the new one. (VJ 2026-10-29: "can we make the link preview match the theme of our site?")
+Link preview image: `public/og-playground.png` is rendered from `tools/og-image.html` (same tokens, fonts and paper grid as the site) with headless Chrome at 1200x630. Rename the file when you change it so link previews, which cache by URL, pick up the new one. (VJ 2026-10-29: "can we make the link preview match the theme of our site?")
